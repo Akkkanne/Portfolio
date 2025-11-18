@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Projets – Sofian</title>
+  <title>Projet Téléphonie – Sofian</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -12,82 +12,89 @@
     <ul class="nav-links">
       <li><a href="index.html">Accueil</a></li>
       <li><a href="certification.html">Certifications</a></li>
-      <li><a href="projets.html">Projets</a></li>
+      <li><a href="projets.html" class="active">Projet</a></li>
     </ul>
   </nav>
 
   <header class="hero small-hero">
-    <h1>Projet GSB PARKAL</h1>
-    <p>Étude – Organisation – Réalisation – Synthèse</p>
+    <h1>Projet Téléphonie & Visioconférence</h1>
+    <p>Mission en groupe : Sofian · Anthaïne · Salim · Owen</p>
   </header>
 
   <section class="section">
-    <h2>Présentation de l’entreprise GSB PARKAL</h2>
+    <h2>Présentation du projet</h2>
     <p>
-      GSB PARKAL est une entreprise spécialisée dans la gestion des parcs automobiles et la mise en place de solutions de suivi et d'optimisation des véhicules.
-      Elle cherche à moderniser ses infrastructures numériques et à automatiser différents processus internes.
+      Ce projet a été réalisé dans le cadre du BTS SIO SISR. Le but était de mettre en place plusieurs services
+      techniques pour un client : un système complet de <strong>téléphonie IP (Asterisk)</strong>, un service de
+      <strong>visioconférence (Jitsi)</strong> ainsi qu’une <strong>supervision active et passive</strong> des équipements.
+    </p>
+    <p>
+      Le travail s’est effectué en groupe (Sofian, Anthaïne, Salim et Owen) avec une organisation basée sur la méthode SCRUM.
     </p>
   </section>
 
   <section class="section">
-    <h2>Présentation du besoin</h2>
-    <p>
-      L'entreprise a exprimé le besoin d’un outil permettant d’améliorer la gestion des données, de centraliser les informations
-      et de faciliter le suivi des activités du parc automobile. L’objectif était de proposer une solution organisée, documentée
-      et collaborative pour répondre efficacement aux attentes de GSB PARKAL.
-    </p>
-  </section>
-
-  <section class="section">
-    <h2>Réalisation : Méthodologie SCRUM</h2>
-    <p>
-      Notre groupe a travaillé en utilisant la méthode agile SCRUM, permettant d'organiser le projet en plusieurs étapes :
-    </p>
+    <h2>Besoin exprimé par le client</h2>
     <ul>
-      <li><strong>Product Backlog :</strong> liste des besoins et fonctionnalités demandées</li>
-      <li><strong>Sprint Planning :</strong> définition des tâches à réaliser dans le sprint</li>
-      <li><strong>Daily Meeting :</strong> point quotidien pour suivre l’avancement</li>
-      <li><strong>Sprint Review :</strong> présentation des résultats du sprint</li>
-      <li><strong>Sprint Retrospective :</strong> analyse des points forts et axes d'amélioration</li>
+      <li>Installer un <strong>serveur Asterisk</strong> pour la téléphonie IP (softphones + téléphones IP).</li>
+      <li>Installer un <strong>serveur Jitsi</strong> pour la visioconférence via téléphones mobiles.</li>
+      <li>Mettre en place une <strong>supervision Zabbix</strong> pour surveiller serveurs, commutateurs et borne WiFi.</li>
+      <li>Fournir des <strong>procédures techniques</strong> et une documentation complète.</li>
+      <li>Déployer une <strong>prise de contrôle à distance</strong> pour l’administration.</li>
     </ul>
   </section>
 
   <section class="section">
-    <h2>Réalisation : Production des documents</h2>
-    <p>
-      Dans le cadre du projet, nous avons réalisé plusieurs livrables :
-    </p>
+    <h2>Organisation : Méthode SCRUM</h2>
+    <p>Notre groupe a suivi une démarche SCRUM :</p>
     <ul>
-      <li>Cahier des charges</li>
-      <li>Diagrammes techniques (UML, architecture réseau, etc.)</li>
-      <li>Documentation fonctionnelle et technique</li>
-      <li>Présentation du projet</li>
+      <li><strong>Scrum Master :</strong> désigné pour coordonner le travail.</li>
+      <li><strong>Réunions quotidiennes :</strong> point rapide en début de séance.</li>
+      <li><strong>Backlog :</strong> liste des tâches (Asterisk, Jitsi, supervision, docs...).</li>
+      <li><strong>Sprint Planning :</strong> répartition des tâches entre les membres.</li>
+      <li><strong>Sprint Review :</strong> vérification des services (tests téléphones IP, softphones, Jitsi...).</li>
+      <li><strong>Rétrospective :</strong> analyse des réussites et difficultés.</li>
     </ul>
   </section>
 
   <section class="section">
-    <h2>Synthèse : ce qui a fonctionné / ce qui est à améliorer</h2>
-    <p><strong>Points positifs :</strong></p>
+    <h2>Réalisation technique</h2>
     <ul>
-      <li>Bonne communication au sein du groupe</li>
-      <li>Organisation claire grâce à SCRUM</li>
-      <li>Productivité améliorée pendant les sprints</li>
+      <li>Installation d’un serveur <strong>Asterisk</strong> (appels internes, comptes SIP, softphone Linphone, MicroSIP...).</li>
+      <li>Configuration de <strong>téléphones IP</strong> (Fanvil SIP X3SG – PoE).</li>
+      <li>Installation d’un serveur <strong>Jitsi</strong> pour la visioconférence.</li>
+      <li>Supervision avec <strong>Zabbix</strong> : serveurs, switchs (Cisco/Linksys/Zyxel), borne WiFi.</li>
+      <li>Création d’un <strong>schéma réseau détaillé</strong> (draw.io).</li>
+      <li>Création de <strong>procédures techniques</strong> : connexion SSH, accès VM, accès commutateurs, config SIP, etc.</li>
+      <li>Tests croisés : communication entre softphones, appels depuis téléphone IP, visioconf via mobile.</li>
+    </ul>
+  </section>
+
+  <section class="section">
+    <h2>Synthèse : Points positifs / améliorations</h2>
+    <p><strong>Ce qui a fonctionné :</strong></p>
+    <ul>
+      <li>Très bonne communication entre les membres du groupe.</li>
+      <li>Répartition claire grâce au backlog SCRUM.</li>
+      <li>Résolution rapide des problèmes techniques.</li>
+      <li>Tests fonctionnels validés (Asterisk + Jitsi + Zabbix).</li>
     </ul>
 
-    <p><strong>Points à améliorer :</strong></p>
+    <p><strong>À améliorer :</strong></p>
     <ul>
-      <li>Mieux estimer le temps nécessaire pour certaines tâches</li>
-      <li>Renforcer la cohérence des documents produits</li>
-      <li>Améliorer la répartition des responsabilités</li>
+      <li>Meilleure anticipation du temps requis pour Zabbix.</li>
+      <li>Améliorer la précision des procédures techniques.</li>
+      <li>Renforcer l'organisation lors des premiers sprints.</li>
     </ul>
   </section>
 
   <section class="section">
     <h2>Conclusion personnelle</h2>
     <p>
-      Ce projet m’a permis de mieux comprendre l’importance de la méthode agile dans la gestion d’équipe.
-      J’ai développé mes compétences en organisation, documentation et communication.
-      Cette expérience m’a également donné une vision plus professionnelle de la gestion de projet.
+      Ce projet m’a permis d’approfondir mes compétences en <strong>téléphonie IP</strong>, en <strong>supervision</strong> et en
+      <strong>méthodes de travail agiles</strong>. Travailler en groupe m’a aidé à mieux comprendre l’importance de la
+      communication, de la répartition des tâches et de la documentation. Ce projet m’a donné une réelle expérience
+      professionnelle et technique très utile pour la suite de mon parcours en SISR.
     </p>
   </section>
 
