@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projets – Sofian</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <nav class="navbar">
+    <div class="logo">SOFIAN / SISR</div>
+    <ul class="nav-links">
+      <li><a href="index.html">Accueil</a></li>
+      <li><a href="certifications.html">Certifications</a></li>
+      <li><a href="projets.html">Projets</a></li>
+    </ul>
+  </nav>
+
+  <header class="hero small-hero">
+    <h1>Projet GSB PARKAL</h1>
+    <p>Étude – Organisation – Réalisation – Synthèse</p>
+  </header>
+
+  <section class="section">
+    <h2>Présentation de l’entreprise GSB PARKAL</h2>
+    <p>
+      GSB PARKAL est une entreprise spécialisée dans la gestion des parcs automobiles et la mise en place de solutions de suivi et d'optimisation des véhicules.
+      Elle cherche à moderniser ses infrastructures numériques et à automatiser différents processus internes.
+    </p>
+  </section>
+
+  <section class="section">
+    <h2>Présentation du besoin</h2>
+    <p>
+      L'entreprise a exprimé le besoin d’un outil permettant d’améliorer la gestion des données, de centraliser les informations
+      et de faciliter le suivi des activités du parc automobile. L’objectif était de proposer une solution organisée, documentée
+      et collaborative pour répondre efficacement aux attentes de GSB PARKAL.
+    </p>
+  </section>
+
+  <section class="section">
+    <h2>Réalisation : Méthodologie SCRUM</h2>
+    <p>
+      Notre groupe a travaillé en utilisant la méthode agile SCRUM, permettant d'organiser le projet en plusieurs étapes :
+    </p>
+    <ul>
+      <li><strong>Product Backlog :</strong> liste des besoins et fonctionnalités demandées</li>
+      <li><strong>Sprint Planning :</strong> définition des tâches à réaliser dans le sprint</li>
+      <li><strong>Daily Meeting :</strong> point quotidien pour suivre l’avancement</li>
+      <li><strong>Sprint Review :</strong> présentation des résultats du sprint</li>
+      <li><strong>Sprint Retrospective :</strong> analyse des points forts et axes d'amélioration</li>
+    </ul>
+  </section>
+
+  <section class="section">
+    <h2>Réalisation : Production des documents</h2>
+    <p>
+      Dans le cadre du projet, nous avons réalisé plusieurs livrables :
+    </p>
+    <ul>
+      <li>Cahier des charges</li>
+      <li>Diagrammes techniques (UML, architecture réseau, etc.)</li>
+      <li>Documentation fonctionnelle et technique</li>
+      <li>Présentation du projet</li>
+    </ul>
+  </section>
+
+  <section class="section">
+    <h2>Synthèse : ce qui a fonctionné / ce qui est à améliorer</h2>
+    <p><strong>Points positifs :</strong></p>
+    <ul>
+      <li>Bonne communication au sein du groupe</li>
+      <li>Organisation claire grâce à SCRUM</li>
+      <li>Productivité améliorée pendant les sprints</li>
+    </ul>
+
+    <p><strong>Points à améliorer :</strong></p>
+    <ul>
+      <li>Mieux estimer le temps nécessaire pour certaines tâches</li>
+      <li>Renforcer la cohérence des documents produits</li>
+      <li>Améliorer la répartition des responsabilités</li>
+    </ul>
+  </section>
+
+  <section class="section">
+    <h2>Conclusion personnelle</h2>
+    <p>
+      Ce projet m’a permis de mieux comprendre l’importance de la méthode agile dans la gestion d’équipe.
+      J’ai développé mes compétences en organisation, documentation et communication.
+      Cette expérience m’a également donné une vision plus professionnelle de la gestion de projet.
+    </p>
+  </section>
+
+</body>
+</html>
