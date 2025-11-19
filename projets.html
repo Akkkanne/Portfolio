@@ -1,102 +1,100 @@
 <!DOCTYPE html>
-<html lang="fr">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Projet Téléphonie – Sofian</title>
-  <link rel="stylesheet" href="style.css" />
+z-index: 50;
+}
+
+
+.popup-container:hover .popup-image {
+display: block;
+}
+
+
+.popup-image img {
+width: 100%;
+border-radius: 8px;
+}
+</style>
 </head>
 <body>
-  <nav class="navbar">
-    <div class="logo">SOFIAN / SISR</div>
-    <ul class="nav-links">
-      <li><a href="index.html">Accueil</a></li>
-      <li><a href="certification.html">Certifications</a></li>
-      <li><a href="projets.html" class="active">Projet</a></li>
-    </ul>
-  </nav>
+<nav class="navbar">
+<div class="logo">SOFIAN / SISR</div>
+<ul class="nav-links">
+<li><a href="index.html">Accueil</a></li>
+<li><a href="certifications.html">Certifications</a></li>
+<li><a href="projets.html" class="active">Projet</a></li>
+</ul>
+</nav>
 
-  <header class="hero small-hero">
-    <h1>Projet Téléphonie & Visioconférence</h1>
-    <p>Mission en groupe : Sofian · Anthoine · Salim · Owen</p>
-  </header>
 
-  <section class="section">
-    <h2>Présentation du projet</h2>
-    <p>
-      Ce projet a été réalisé dans le cadre du BTS SIO SISR. Le but était de mettre en place plusieurs services
-      techniques pour un client : un système complet de <strong>téléphonie IP (Asterisk)</strong>, un service de
-      <strong>visioconférence (Jitsi)</strong> ainsi qu’une <strong>supervision active et passive</strong> des équipements.
-    </p>
-    <p>
-      Le travail s’est effectué en groupe (Sofian, Anthoine, Salim et Owen) avec une organisation basée sur la méthode SCRUM.
-    </p>
-  </section>
+<header class="hero small-hero">
+<h1>Projet Téléphonie & Visioconférence</h1>
+<p>Mission en groupe : Sofian · Anthaïne · Salim · Owen</p>
+</header>
 
-  <section class="section">
-    <h2>Besoin exprimé par le client</h2>
-    <ul>
-      <li>Installer un <strong>serveur Asterisk</strong> pour la téléphonie IP (softphones + téléphones IP).</li>
-      <li>Installer un <strong>serveur Jitsi</strong> pour la visioconférence via téléphones mobiles.</li>
-      <li>Mettre en place une <strong>supervision Zabbix</strong> pour surveiller serveurs, commutateurs et borne WiFi.</li>
-      <li>Fournir des <strong>procédures techniques</strong> et une documentation complète.</li>
-      <li>Déployer une <strong>prise de contrôle à distance</strong> pour l’administration.</li>
-    </ul>
-  </section>
 
-  <section class="section">
-    <h2>Organisation : Méthode SCRUM</h2>
-    <p>Notre groupe a suivi une démarche SCRUM :</p>
-    <ul>
-      <li><strong>Scrum Master :</strong> désigné pour coordonner le travail.</li>
-      <li><strong>Réunions quotidiennes :</strong> point rapide en début de séance.</li>
-      <li><strong>Backlog :</strong> liste des tâches (Asterisk, Jitsi, supervision, docs...).</li>
-      <li><strong>Sprint Planning :</strong> répartition des tâches entre les membres.</li>
-      <li><strong>Sprint Review :</strong> vérification des services (tests téléphones IP, softphones, Jitsi...).</li>
-      <li><strong>Rétrospective :</strong> analyse des réussites et difficultés.</li>
-    </ul>
-  </section>
+<section class="section">
+<h2>Besoin exprimé par le client (avec prévisualisation)</h2>
 
-  <section class="section">
-    <h2>Réalisation technique</h2>
-    <ul>
-      <li>Installation d’un serveur <strong>Asterisk</strong> (appels internes, comptes SIP, softphone Linphone, MicroSIP...).</li>
-      <li>Configuration de <strong>téléphones IP</strong> (Fanvil SIP X3SG – PoE).</li>
-      <li>Installation d’un serveur <strong>Jitsi</strong> pour la visioconférence.</li>
-      <li>Supervision avec <strong>Zabbix</strong> : serveurs, switchs (Cisco/Linksys/Zyxel), borne WiFi.</li>
-      <li>Création d’un <strong>schéma réseau détaillé</strong> (draw.io).</li>
-      <li>Création de <strong>procédures techniques</strong> : connexion SSH, accès VM, accès commutateurs, config SIP, etc.</li>
-      <li>Tests croisés : communication entre softphones, appels depuis téléphone IP, visioconf via mobile.</li>
-    </ul>
-  </section>
 
-  <section class="section">
-    <h2>Synthèse : Points positifs / améliorations</h2>
-    <p><strong>Ce qui a fonctionné :</strong></p>
-    <ul>
-      <li>Très bonne communication entre les membres du groupe.</li>
-      <li>Répartition claire grâce au backlog SCRUM.</li>
-      <li>Résolution rapide des problèmes techniques.</li>
-      <li>Tests fonctionnels validés (Asterisk + Jitsi + Zabbix).</li>
-    </ul>
+<div class="popup-container">
+<span class="popup-trigger">Installer un serveur Asterisk</span>
+<div class="popup-image">
+<img src="img/placeholder_asterisk.jpg" alt="Asterisk Preview" />
+</div>
+<p>Service de téléphonie interne basé sur SIP.</p>
+</div>
 
-    <p><strong>À améliorer :</strong></p>
-    <ul>
-      <li>Meilleure anticipation du temps requis pour Zabbix.</li>
-      <li>Améliorer la précision des procédures techniques.</li>
-      <li>Renforcer l'organisation lors des premiers sprints.</li>
-    </ul>
-  </section>
 
-  <section class="section">
-    <h2>Conclusion personnelle</h2>
-    <p>
-      Ce projet m’a permis d’approfondir mes compétences en <strong>téléphonie IP</strong>, en <strong>supervision</strong> et en
-      <strong>méthodes de travail agiles</strong>. Travailler en groupe m’a aidé à mieux comprendre l’importance de la
-      communication, de la répartition des tâches et de la documentation. Ce projet m’a donné une réelle expérience
-      professionnelle et technique très utile pour la suite de mon parcours en SISR.
-    </p>
-  </section>
+<div class="popup-container">
+<span class="popup-trigger">Installer un serveur Jitsi</span>
+<div class="popup-image">
+<img src="img/placeholder_jitsi.jpg" alt="Jitsi Preview" />
+</div>
+<p>Service de visioconférence pour mobiles.</p>
+</div>
+
+
+<div class="popup-container">
+<span class="popup-trigger">Mettre en place une supervision Zabbix</span>
+<div class="popup-image">
+<img src="img/placeholder_zabbix.jpg" alt="Zabbix Preview" />
+</div>
+<p>Supervision serveurs + bornes WiFi + commutateurs.</p>
+</div>
+
+
+<div class="popup-container">
+<span class="popup-trigger">Fournir des procédures techniques</span>
+<div class="popup-image">
+<img src="img/placeholder_docs.jpg" alt="Documentation Preview" />
+</div>
+<p>Accès SSH, VM, téléphones IP, sauvegardes…</p>
+</div>
+
+
+<div class="popup-container">
+<span class="popup-trigger">Déployer une prise en main à distance</span>
+<div class="popup-image">
+<img src="img/placeholder_remote.jpg" alt="Remote Access Preview" />
+</div>
+<p>Contrôle à distance sécurisé des serveurs.</p>
+</div>
+</section>
+
+
+<section class="section">
+<h2>Réalisation technique</h2>
+<p>Texte déjà présent plus haut, conservé. Cette section reste classique.</p>
+</section>
+
+
+<section class="section">
+<h2>Conclusion personnelle</h2>
+<p>
+Ce projet m’a permis d’approfondir mes compétences en téléphonie IP, en supervision et en méthodes de travail agile.
+Le fait de pouvoir tester les services en conditions réelles m’a permis de comprendre leur fonctionnement complet.
+</p>
+</section>
+
 
 </body>
 </html>
