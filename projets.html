@@ -6,7 +6,6 @@
   <title>Projet Téléphonie – Sofian</title>
   <link rel="stylesheet" href="style.css" />
 
-  <!-- STYLE DES POP-UP -->
   <style>
     .popup-container {
       position: relative;
@@ -43,79 +42,120 @@
     }
   </style>
 </head>
-
 <body>
+  <nav class="navbar">
+    <div class="logo">SOFIAN / SISR</div>
+    <ul class="nav-links">
+      <li><a href="index.html">Accueil</a></li>
+      <li><a href="certifications.html">Certifications</a></li>
+      <li><a href="projets.html" class="active">Projet</a></li>
+    </ul>
+  </nav>
 
-<nav class="navbar">
-  <div class="logo">SOFIAN / SISR</div>
-  <ul class="nav-links">
-    <li><a href="index.html">Accueil</a></li>
-    <li><a href="certifications.html">Certifications</a></li>
-    <li><a href="projets.html" class="active">Projet</a></li>
-  </ul>
-</nav>
+  <header class="hero small-hero">
+    <h1>Projet Téléphonie & Visioconférence</h1>
+    <p>Mission en groupe : Sofian · Anthaïne · Salim · Owen</p>
+  </header>
 
-<header class="hero small-hero">
-  <h1>Projet Téléphonie & Visioconférence</h1>
-  <p>Mission en groupe : Sofian · Anthaïne · Salim · Owen</p>
-</header>
+  <section class="section">
+<h2>Besoin exprimé par le client (avec prévisualisation)</h2>
 
-<section class="section">
-  <h2>Besoin exprimé par le client (avec prévisualisation)</h2>
+<!-- POPUP STYLE -->
+<style>
+  .popup-container { position: relative; margin-bottom: 15px; }
+  .popup-trigger { color: #00bfff; font-weight: bold; cursor: pointer; text-decoration: underline; }
+  .popup-image {
+    display: none; position: absolute; top: 0; left: 110%; width: 260px;
+    background: #1a1c2b; padding: 10px; border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0,191,255,0.3); z-index: 50;
+  }
+  .popup-container:hover .popup-image { display: block; }
+  .popup-image img { width: 100%; border-radius: 8px; }
+</style>
 
-  <div class="popup-container">
-    <span class="popup-trigger">Installer un serveur Asterisk</span>
-    <div class="popup-image">
-      <img src="img/placeholder_asterisk.jpg" alt="Asterisk Preview" />
+<div class="popup-container">
+  <span class="popup-trigger">Installer un serveur Asterisk</span>
+  <div class="popup-image"><img src="img/placeholder_asterisk.jpg" alt="Asterisk Preview" /></div>
+  <p>Service de téléphonie interne basé sur SIP.</p>
+</div>
+
+<div class="popup-container">
+  <span class="popup-trigger">Installer un serveur Jitsi</span>
+  <div class="popup-image"><img src="img/placeholder_jitsi.jpg" alt="Jitsi Preview" /></div>
+  <p>Service de visioconférence pour mobiles.</p>
+</div>
+
+<div class="popup-container">
+  <span class="popup-trigger">Mettre en place une supervision Zabbix</span>
+  <div class="popup-image"><img src="img/placeholder_zabbix.jpg" alt="Zabbix Preview" /></div>
+  <p>Supervision serveurs + bornes WiFi + commutateurs.</p>
+</div>
+
+<div class="popup-container">
+  <span class="popup-trigger">Fournir des procédures techniques</span>
+  <div class="popup-image"><img src="img/placeholder_docs.jpg" alt="Documentation Preview" /></div>
+  <p>Accès SSH, VM, téléphones IP, sauvegardes…</p>
+</div>
+
+<div class="popup-container">
+  <span class="popup-trigger">Déployer une prise en main à distance</span>
+  <div class="popup-image"><img src="img/placeholder_remote.jpg" alt="Remote Access Preview" /></div>
+  <p>Contrôle à distance sécurisé des serveurs.</p>
+</div> par le client (avec prévisualisation)</h2>
+
+    <div class="popup-container">
+      <span class="popup-trigger">Installer un serveur Asterisk</span>
+      <div class="popup-image">
+        <img src="img/placeholder_asterisk.jpg" alt="Asterisk Preview" />
+      </div>
+      <p>Service de téléphonie interne basé sur SIP.</p>
     </div>
-    <p>Service de téléphonie interne basé sur SIP.</p>
-  </div>
 
-  <div class="popup-container">
-    <span class="popup-trigger">Installer un serveur Jitsi</span>
-    <div class="popup-image">
-      <img src="img/placeholder_jitsi.jpg" alt="Jitsi Preview" />
+    <div class="popup-container">
+      <span class="popup-trigger">Installer un serveur Jitsi</span>
+      <div class="popup-image">
+        <img src="img/placeholder_jitsi.jpg" alt="Jitsi Preview" />
+      </div>
+      <p>Service de visioconférence pour mobiles.</p>
     </div>
-    <p>Service de visioconférence pour mobiles.</p>
-  </div>
 
-  <div class="popup-container">
-    <span class="popup-trigger">Mettre en place une supervision Zabbix</span>
-    <div class="popup-image">
-      <img src="img/placeholder_zabbix.jpg" alt="Zabbix Preview" />
+    <div class="popup-container">
+      <span class="popup-trigger">Mettre en place une supervision Zabbix</span>
+      <div class="popup-image">
+        <img src="img/placeholder_zabbix.jpg" alt="Zabbix Preview" />
+      </div>
+      <p>Supervision serveurs + bornes WiFi + commutateurs.</p>
     </div>
-    <p>Supervision serveurs + bornes WiFi + commutateurs.</p>
-  </div>
 
-  <div class="popup-container">
-    <span class="popup-trigger">Fournir des procédures techniques</span>
-    <div class="popup-image">
-      <img src="img/placeholder_docs.jpg" alt="Documentation Preview" />
+    <div class="popup-container">
+      <span class="popup-trigger">Fournir des procédures techniques</span>
+      <div class="popup-image">
+        <img src="img/placeholder_docs.jpg" alt="Documentation Preview" />
+      </div>
+      <p>Accès SSH, VM, téléphones IP, sauvegardes…</p>
     </div>
-    <p>Accès SSH, VM, téléphones IP, sauvegardes…</p>
-  </div>
 
-  <div class="popup-container">
-    <span class="popup-trigger">Déployer une prise en main à distance</span>
-    <div class="popup-image">
-      <img src="img/placeholder_remote.jpg" alt="Remote Access Preview" />
+    <div class="popup-container">
+      <span class="popup-trigger">Déployer une prise en main à distance</span>
+      <div class="popup-image">
+        <img src="img/placeholder_remote.jpg" alt="Remote Access Preview" />
+      </div>
+      <p>Contrôle à distance sécurisé des serveurs.</p>
     </div>
-    <p>Contrôle à distance sécurisé des serveurs.</p>
-  </div>
-</section>
+  </section>
 
-<section class="section">
-  <h2>Réalisation technique</h2>
-  <p>Texte déjà présent plus haut, conservé. Cette section reste classique.</p>
-</section>
+  <section class="section">
+    <h2>Réalisation technique</h2>
+    <p>Texte déjà présent plus haut, conservé. Cette section reste classique.</p>
+  </section>
 
-<section class="section">
-  <h2>Conclusion personnelle</h2>
-  <p>
-    Ce projet m’a permis d’approfondir mes compétences en téléphonie IP, en supervision et en méthodes de travail agile.
-    Le fait de pouvoir tester les services en conditions réelles m’a permis de comprendre leur fonctionnement complet.
-  </p>
-</section>
+  <section class="section">
+    <h2>Conclusion personnelle</h2>
+    <p>
+      Ce projet m’a permis d’approfondir mes compétences en téléphonie IP, en supervision et en méthodes de travail agile.
+      Le fait de pouvoir tester les services en conditions réelles m’a permis de comprendre leur fonctionnement complet.
+    </p>
+  </section>
 
 </body>
 </html>
