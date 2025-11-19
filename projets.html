@@ -99,4 +99,14 @@
   </section>
 
 </body>
+  <script>
+document.querySelectorAll('.popup').forEach(el => {
+  el.addEventListener('mouseenter', () => {
+    el.classList.add('show');
+  });
+  el.addEventListener('mouseleave', () => {
+    el.classList.remove('show');
+  });
+});
+</script>
 </html>
