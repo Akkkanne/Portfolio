@@ -4,58 +4,139 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Portfolio Sofian – Tech/Cyber</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;500;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg:#0a0c10; --surface:#111318; --surface2:#181c24; --border:#2a2f3d;
+      --accent:#00e5ff; --accent2:#7c3aed; --green:#10b981; --orange:#f59e0b;
+      --text:#e2e8f0; --muted:#6b7280;
+    }
+    body { background:var(--bg); color:var(--text); font-family:'Syne',sans-serif; min-height:100vh; line-height:1.6; }
+
+    nav {
+      background:rgba(10,12,16,0.95); border-bottom:1px solid var(--border);
+      padding:0 2rem; display:flex; align-items:center; justify-content:space-between;
+      position:sticky; top:0; z-index:100; backdrop-filter:blur(12px);
+    }
+    .logo { font-family:'Space Mono',monospace; font-size:13px; color:var(--accent); letter-spacing:0.08em; padding:1rem 0; text-decoration:none; }
+    .nav-links { display:flex; gap:0.25rem; flex-wrap:wrap; }
+    .nav-links a { color:var(--muted); font-family:'Syne',sans-serif; font-size:13px; padding:0.5rem 0.875rem; border-radius:6px; text-decoration:none; transition:all 0.2s; letter-spacing:0.03em; border:1px solid transparent; }
+    .nav-links a:hover { color:var(--text); background:var(--surface2); }
+    .nav-links a.active { color:var(--accent); background:rgba(0,229,255,0.08); border-color:rgba(0,229,255,0.2); }
+
+    .container { max-width:900px; margin:0 auto; padding:3rem 2rem; }
+
+    .hero { padding:3rem 0 2.5rem; border-bottom:1px solid var(--border); margin-bottom:3rem; }
+    .hero-badge {
+      display:inline-block; background:rgba(0,229,255,0.1); border:1px solid rgba(0,229,255,0.3);
+      color:var(--accent); font-family:'Space Mono',monospace; font-size:11px;
+      padding:4px 12px; border-radius:4px; letter-spacing:0.1em; margin-bottom:1.5rem;
+    }
+    h1 { font-size:clamp(2.5rem,6vw,4rem); font-weight:800; line-height:1.05; letter-spacing:-0.02em; margin-bottom:0.75rem; }
+    h1 span { color:var(--accent); }
+    .subtitle { color:var(--muted); font-size:16px; line-height:1.7; max-width:540px; margin-bottom:2rem; }
+
+    .about-block {
+      background:var(--surface); border:1px solid var(--border); border-left:3px solid var(--accent);
+      border-radius:10px; padding:1.5rem 1.75rem; margin-bottom:3rem; font-size:15px; line-height:1.8;
+    }
+
+    .section-label {
+      font-family:'Space Mono',monospace; font-size:10px; letter-spacing:0.12em;
+      color:var(--muted); text-transform:uppercase; margin-bottom:1.25rem;
+      display:flex; align-items:center; gap:8px;
+    }
+    .section-label::after { content:''; flex:1; height:1px; background:var(--border); }
+
+    .skills-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:10px; margin-bottom:3rem; }
+    .skill-chip {
+      background:var(--surface); border:1px solid var(--border); border-radius:8px;
+      padding:10px 14px; font-size:13px; color:var(--text); display:flex; align-items:center;
+      gap:8px; transition:border-color 0.2s, transform 0.2s;
+    }
+    .skill-chip:hover { border-color:var(--accent); transform:translateY(-2px); }
+    .skill-chip .dot { width:6px; height:6px; border-radius:50%; background:var(--accent); flex-shrink:0; }
+
+    .quick-links { display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:12px; }
+    .quick-card {
+      background:var(--surface); border:1px solid var(--border); border-radius:12px;
+      padding:1.25rem; text-decoration:none; color:var(--text); transition:all 0.2s; display:block;
+    }
+    .quick-card:hover { border-color:var(--accent); background:var(--surface2); transform:translateY(-3px); }
+    .quick-card .ql-label { font-family:'Space Mono',monospace; font-size:10px; color:var(--accent); letter-spacing:0.08em; margin-bottom:6px; }
+    .quick-card .ql-title { font-size:14px; font-weight:600; }
+    .quick-card .ql-desc { font-size:12px; color:var(--muted); margin-top:4px; }
+
+    footer { text-align:center; padding:2rem; color:var(--muted); font-family:'Space Mono',monospace; font-size:11px; border-top:1px solid var(--border); margin-top:4rem; }
+  </style>
 </head>
 <body>
-  <nav class="navbar">
-    <div class="logo">SOFIAN / SISR</div>
-    <ul class="nav-links">
-      <li><a href="index.html">Accueil</a></li>
-      <li><a href="certification.html">Certifications</a></li>
-      <li><a href="projets.html">Projet</a></li>
-    </ul>
-  </nav>
 
-  <header class="hero">
-    <h1>Jaglin Sofian</h1>
-    <p>Étudiant BTS SIO SISR – Cybersécurité & Réseaux</p>
-  </header>
+<nav>
+  <a class="logo" href="index.html">SOFIAN_JAGLIN.portfolio</a>
+  <div class="nav-links">
+    <a href="index.html" class="active">Accueil</a>
+    <a href="stages.html">Stages</a>
+    <a href="veille.html">Veille</a>
+    <a href="projets.html">Projets</a>
+    <a href="certification.html">Certifications</a>
+  </div>
+</nav>
 
-  <section class="section">
-    <h2>À propos</h2>
-    <p>
-      Je suis étudiant en BTS SIO SISR passionné par les infrastructures, la cybersécurité et l'administration système.
-      Ce portfolio présente mes projets, mes compétences et mes certifications.
-    </p>
-  </section>
+<div class="container">
 
-  <section class="section">
-    <h2>Compétences</h2>
-    <div class="skills-grid">
-      <div class="skill">Cisco / Réseaux</div>
-      <div class="skill">Linux (Debian, Mint)</div>
-      <div class="skill">Cybersécurité</div>
-      <div class="skill">GLPI / Zabbix</div>
-      <div class="skill">Virtualisation</div>
-      <div class="skill">HTML / CSS</div>
-    </div>
-  </section>
+  <div class="hero">
+    <div class="hero-badge">BTS SIO · SISR · Cybersécurité & Réseaux</div>
+    <h1>Jaglin <span>Sofian</span></h1>
+    <p class="subtitle">Étudiant en BTS SIO option SISR, passionné par les infrastructures réseau, la cybersécurité et l'administration système. Ce portfolio présente mes projets, stages, certifications et ma veille technologique.</p>
+  </div>
 
-  <section class="section">
-    <h2>Projets</h2>
-    <div class="project-card">
-      <h3>Installation & Configuration de Graylog</h3>
-      <p>Système de centralisation de logs sur Linux Mint dans le cadre du stage.</p>
-    </div>
-    <div class="project-card">
-      <h3>GLPI + Base MySQL + Agents</h3>
-      <p>Déploiement d'un système complet de gestion des incidents.</p>
-    </div>
-    <div class="project-card">
-      <h3>Monitoring Zabbix</h3>
-      <p>Surveillance réseau, SNMP, serveurs, hôtes, dashboards.</p>
-    </div>
-  </section>
+  <div class="about-block">
+    Je suis étudiant en <strong>BTS SIO SISR</strong> passionné par les infrastructures, la cybersécurité et l'administration système. J'ai réalisé deux stages en entreprise, obtenu plusieurs certifications et je mène une veille active sur les technologies de sécurité, notamment autour du <strong>SOAR</strong> et des solutions SOC.
+  </div>
+
+  <div class="section-label">Compétences techniques</div>
+  <div class="skills-grid">
+    <div class="skill-chip"><div class="dot"></div>Cisco / Réseaux</div>
+    <div class="skill-chip"><div class="dot"></div>Linux (Debian, Mint)</div>
+    <div class="skill-chip"><div class="dot"></div>Cybersécurité</div>
+    <div class="skill-chip"><div class="dot"></div>GLPI / ITSM</div>
+    <div class="skill-chip"><div class="dot"></div>Zabbix / Graylog</div>
+    <div class="skill-chip"><div class="dot"></div>Virtualisation</div>
+    <div class="skill-chip"><div class="dot"></div>Asterisk / VoIP</div>
+    <div class="skill-chip"><div class="dot"></div>HTML / CSS</div>
+  </div>
+
+  <div class="section-label">Explorer le portfolio</div>
+  <div class="quick-links">
+    <a href="stages.html" class="quick-card">
+      <div class="ql-label">Expériences</div>
+      <div class="ql-title">Mes Stages</div>
+      <div class="ql-desc">Labo de maths & XEFI</div>
+    </a>
+    <a href="veille.html" class="quick-card">
+      <div class="ql-label">Veille Techno</div>
+      <div class="ql-title">SOAR</div>
+      <div class="ql-desc">Automatisation sécurité SOC</div>
+    </a>
+    <a href="projets.html" class="quick-card">
+      <div class="ql-label">Réalisations</div>
+      <div class="ql-title">Projets Techniques</div>
+      <div class="ql-desc">Asterisk, GLPI, Graylog...</div>
+    </a>
+    <a href="certification.html" class="quick-card">
+      <div class="ql-label">Diplômes & Certifs</div>
+      <div class="ql-title">Certifications</div>
+      <div class="ql-desc">ANSSI, TryHackMe, Cisco...</div>
+    </a>
+  </div>
+
+</div>
+
+<footer>© 2025 Sofian Jaglin — BTS SIO SISR</footer>
 
 </body>
 </html>

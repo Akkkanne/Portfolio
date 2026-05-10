@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Veille Technologique – SOAR – Sofian Jaglin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;500;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+    :root {
+      --bg:#0a0c10; --surface:#111318; --surface2:#181c24; --border:#2a2f3d;
+      --accent:#00e5ff; --accent2:#7c3aed; --green:#10b981; --orange:#f59e0b;
+      --text:#e2e8f0; --muted:#6b7280;
+    }
+    body { background:var(--bg); color:var(--text); font-family:'Syne',sans-serif; min-height:100vh; line-height:1.6; }
+
+    nav {
+      background:rgba(10,12,16,0.95); border-bottom:1px solid var(--border);
+      padding:0 2rem; display:flex; align-items:center; justify-content:space-between;
+      position:sticky; top:0; z-index:100; backdrop-filter:blur(12px);
+    }
+    .logo { font-family:'Space Mono',monospace; font-size:13px; color:var(--accent); letter-spacing:0.08em; padding:1rem 0; text-decoration:none; }
+    .nav-links { display:flex; gap:0.25rem; flex-wrap:wrap; }
+    .nav-links a { color:var(--muted); font-family:'Syne',sans-serif; font-size:13px; padding:0.5rem 0.875rem; border-radius:6px; text-decoration:none; transition:all 0.2s; letter-spacing:0.03em; border:1px solid transparent; }
+    .nav-links a:hover { color:var(--text); background:var(--surface2); }
+    .nav-links a.active { color:var(--accent); background:rgba(0,229,255,0.08); border-color:rgba(0,229,255,0.2); }
+
+    .container { max-width:900px; margin:0 auto; padding:3rem 2rem; }
+
+    .tag { display:inline-block; font-family:'Space Mono',monospace; font-size:10px; letter-spacing:0.1em; padding:3px 10px; border-radius:4px; margin-bottom:0.75rem; text-transform:uppercase; }
+    .tag-purple { background:rgba(124,58,237,0.1); color:#a78bfa; border:1px solid rgba(124,58,237,0.25); }
+    .tag-cyan   { background:rgba(0,229,255,0.1);  color:var(--accent); border:1px solid rgba(0,229,255,0.25); }
+    .tag-green  { background:rgba(16,185,129,0.1); color:var(--green);  border:1px solid rgba(16,185,129,0.25); }
+
+    .page-header { margin-bottom:2.5rem; padding-bottom:2rem; border-bottom:1px solid var(--border); }
+    .page-header h1 { font-size:2.25rem; font-weight:800; letter-spacing:-0.02em; margin-bottom:0.5rem; }
+    .page-header h1 span { color:var(--accent); }
+    .page-header p { color:var(--muted); font-size:15px; }
+
+    /* HERO DÉFINITION */
+    .soar-hero {
+      background:linear-gradient(135deg, rgba(124,58,237,0.1), rgba(0,229,255,0.05));
+      border:1px solid rgba(124,58,237,0.3); border-radius:16px; padding:2rem;
+      margin-bottom:2.5rem; font-size:15px; line-height:1.9;
+    }
+    .soar-hero strong { color:var(--accent); }
+
+    /* ACRONYME */
+    .section-label {
+      font-family:'Space Mono',monospace; font-size:10px; letter-spacing:0.12em;
+      color:var(--muted); text-transform:uppercase; margin-bottom:1.25rem;
+      display:flex; align-items:center; gap:8px;
+    }
+    .section-label::after { content:''; flex:1; height:1px; background:var(--border); }
+
+    .soar-acronym { display:grid; grid-template-columns:repeat(2,1fr); gap:14px; margin-bottom:2.5rem; }
+    .acronym-card {
+      background:var(--surface); border:1px solid var(--border); border-radius:14px;
+      padding:1.5rem; transition:border-color 0.2s, transform 0.2s;
+    }
+    .acronym-card:hover { border-color:rgba(124,58,237,0.5); transform:translateY(-3px); }
+    .acronym-letter { font-family:'Space Mono',monospace; font-size:2.5rem; font-weight:700; color:var(--accent); line-height:1; }
+    .acronym-word { font-size:13px; font-weight:700; color:var(--text); margin-top:6px; letter-spacing:0.02em; }
+    .acronym-desc { font-size:13px; color:var(--muted); margin-top:8px; line-height:1.6; }
+
+    /* WORKFLOW */
+    .workflow-card {
+      background:var(--surface); border:1px solid var(--border); border-radius:14px;
+      padding:1.75rem; margin-bottom:2.5rem;
+    }
+    .workflow-card h3 { font-size:16px; font-weight:700; margin-bottom:4px; }
+    .workflow-card .wc-sub { font-size:12px; color:var(--muted); margin-bottom:1.25rem; }
+    .workflow-steps { display:flex; align-items:center; gap:6px; flex-wrap:wrap; }
+    .wstep {
+      background:var(--surface2); border:1px solid var(--border); border-radius:8px;
+      padding:8px 14px; font-size:12px; color:var(--text);
+      transition:border-color 0.2s;
+    }
+    .wstep:hover { border-color:var(--accent); color:var(--accent); }
+    .warrow { color:var(--muted); font-size:14px; }
+
+    /* COMPARAISON SOC */
+    .compare-grid { display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-bottom:2.5rem; }
+    .compare-card { background:var(--surface); border:1px solid var(--border); border-radius:14px; padding:1.5rem; }
+    .compare-card h3 { font-size:14px; font-weight:700; margin-bottom:1rem; padding-bottom:0.75rem; border-bottom:1px solid var(--border); }
+    .compare-card.sans h3 { color:#f87171; }
+    .compare-card.avec h3 { color:var(--green); }
+    .compare-item { font-size:13px; color:var(--muted); padding:6px 0; border-bottom:1px solid rgba(255,255,255,0.04); line-height:1.5; }
+    .compare-item:last-child { border-bottom:none; }
+    .compare-item::before { content:'→ '; color:var(--muted); }
+    .compare-card.avec .compare-item::before { content:'✓ '; color:var(--green); }
+    .compare-card.sans .compare-item::before { content:'✗ '; color:#f87171; }
+
+    /* SOLUTIONS */
+    .solutions-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:10px; margin-bottom:2.5rem; }
+    .sol-card {
+      background:var(--surface); border:1px solid var(--border); border-radius:12px;
+      padding:1.25rem; text-align:center; transition:all 0.2s;
+    }
+    .sol-card:hover { border-color:rgba(0,229,255,0.3); transform:translateY(-3px); }
+    .sol-icon { font-size:1.75rem; margin-bottom:8px; }
+    .sol-name { font-weight:700; font-size:13px; margin-bottom:4px; }
+    .sol-vendor { font-size:11px; color:var(--muted); }
+    .sol-badge { font-family:'Space Mono',monospace; font-size:9px; padding:2px 8px; border-radius:4px; margin-top:8px; display:inline-block; }
+    .sol-open { background:rgba(16,185,129,0.1); color:var(--green); border:1px solid rgba(16,185,129,0.2); }
+    .sol-commercial { background:rgba(0,229,255,0.08); color:var(--accent); border:1px solid rgba(0,229,255,0.2); }
+
+    /* INFO BOX */
+    .info-box {
+      background:rgba(0,229,255,0.05); border:1px solid rgba(0,229,255,0.2);
+      border-left:3px solid var(--accent); border-radius:10px;
+      padding:1.25rem 1.5rem; font-size:14px; line-height:1.8; margin-bottom:2.5rem;
+    }
+    .info-box strong { color:var(--accent); }
+
+    /* SOURCES */
+    .sources { background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:1.5rem; }
+    .sources h3 { font-size:13px; font-family:'Space Mono',monospace; color:var(--muted); margin-bottom:1rem; letter-spacing:0.06em; text-transform:uppercase; }
+    .source-item { display:flex; align-items:center; gap:10px; padding:8px 0; border-bottom:1px solid rgba(255,255,255,0.04); font-size:13px; }
+    .source-item:last-child { border-bottom:none; }
+    .source-item a { color:var(--accent); text-decoration:none; transition:opacity 0.2s; }
+    .source-item a:hover { opacity:0.7; }
+    .src-tag { font-family:'Space Mono',monospace; font-size:9px; padding:2px 7px; border-radius:3px; background:var(--surface2); border:1px solid var(--border); color:var(--muted); }
+
+    footer { text-align:center; padding:2rem; color:var(--muted); font-family:'Space Mono',monospace; font-size:11px; border-top:1px solid var(--border); margin-top:4rem; }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a class="logo" href="index.html">SOFIAN_JAGLIN.portfolio</a>
+  <div class="nav-links">
+    <a href="index.html">Accueil</a>
+    <a href="stages.html">Stages</a>
+    <a href="veille.html" class="active">Veille</a>
+    <a href="projets.html">Projets</a>
+    <a href="certification.html">Certifications</a>
+  </div>
+</nav>
+
+<div class="container">
+
+  <div class="page-header">
+    <span class="tag tag-purple">Veille technologique</span>
+    <h1>Le <span>SOAR</span></h1>
+    <p>Security Orchestration, Automation and Response — Automatisation de la réponse aux incidents de sécurité</p>
+  </div>
+
+  <!-- DÉFINITION -->
+  <div class="soar-hero">
+    Le <strong>SOAR</strong> (Security Orchestration, Automation and Response) est une catégorie de solutions de cybersécurité permettant aux équipes SOC d'<strong>automatiser les tâches répétitives</strong>, d'<strong>orchestrer les outils de sécurité</strong> entre eux, et de <strong>répondre aux incidents</strong> de manière rapide et structurée. L'objectif est de réduire le temps de détection et de réponse (MTTD/MTTR) face aux menaces, tout en soulageant les analystes des tâches à faible valeur ajoutée.
+  </div>
+
+  <!-- ACRONYME -->
+  <div class="section-label">Décryptage de l'acronyme</div>
+  <div class="soar-acronym">
+    <div class="acronym-card">
+      <div class="acronym-letter">S</div>
+      <div class="acronym-word">Security Orchestration</div>
+      <div class="acronym-desc">Coordination et intégration des outils de sécurité hétérogènes (SIEM, EDR, firewall, ticketing, threat intel…) via des connecteurs et des APIs standardisées.</div>
+    </div>
+    <div class="acronym-card">
+      <div class="acronym-letter">O</div>
+      <div class="acronym-word">Automation</div>
+      <div class="acronym-desc">Automatisation des tâches répétitives sans valeur ajoutée : enrichissement d'alertes, corrélation d'IOC, blocage d'IP, vérification de réputation de domaines.</div>
+    </div>
+    <div class="acronym-card">
+      <div class="acronym-letter">A</div>
+      <div class="acronym-word">Analysis</div>
+      <div class="acronym-desc">Analyse contextuelle des incidents : regroupement et corrélation des données, calcul de score de criticité, investigation guidée par des règles ou du machine learning.</div>
+    </div>
+    <div class="acronym-card">
+      <div class="acronym-letter">R</div>
+      <div class="acronym-word">Response</div>
+      <div class="acronym-desc">Réponse aux incidents via des playbooks automatisés : isolation d'une machine compromise, révocation d'un compte, notification des équipes, création de ticket.</div>
+    </div>
+  </div>
+
+  <!-- WORKFLOW -->
+  <div class="workflow-card">
+    <div class="tag tag-cyan" style="margin-bottom:0.75rem">Workflow</div>
+    <h3>De l'alerte à la remédiation</h3>
+    <p class="wc-sub">Cycle de traitement d'un incident via un SOAR</p>
+    <div class="workflow-steps">
+      <div class="wstep">🔔 Alerte SIEM</div>
+      <div class="warrow">→</div>
+      <div class="wstep">📥 Ingestion SOAR</div>
+      <div class="warrow">→</div>
+      <div class="wstep">🔍 Enrichissement</div>
+      <div class="warrow">→</div>
+      <div class="wstep">📊 Scoring</div>
+      <div class="warrow">→</div>
+      <div class="wstep">📋 Playbook</div>
+      <div class="warrow">→</div>
+      <div class="wstep">🛡️ Remédiation</div>
+      <div class="warrow">→</div>
+      <div class="wstep">📝 Rapport</div>
+    </div>
+  </div>
+
+  <!-- SOC SANS / AVEC -->
+  <div class="section-label">Impact sur le SOC</div>
+  <div class="compare-grid">
+    <div class="compare-card sans">
+      <h3>SOC sans SOAR</h3>
+      <div class="compare-item">Traitement manuel de centaines d'alertes par jour</div>
+      <div class="compare-item">Temps de réponse lent (heures, jours)</div>
+      <div class="compare-item">Risque d'erreur humaine élevé</div>
+      <div class="compare-item">Analystes surchargés par les faux positifs</div>
+      <div class="compare-item">Outils cloisonnés, peu d'intégration</div>
+    </div>
+    <div class="compare-card avec">
+      <h3>SOC avec SOAR</h3>
+      <div class="compare-item">Triage automatisé, alertes priorisées</div>
+      <div class="compare-item">MTTR réduit à quelques minutes</div>
+      <div class="compare-item">Playbooks standardisés et reproductibles</div>
+      <div class="compare-item">Analystes focalisés sur les vrais incidents</div>
+      <div class="compare-item">Écosystème d'outils intégré et orchestré</div>
+    </div>
+  </div>
+
+  <!-- SOLUTIONS -->
+  <div class="section-label">Solutions du marché</div>
+  <div class="solutions-grid">
+    <div class="sol-card">
+      <div class="sol-icon">🔴</div>
+      <div class="sol-name">Splunk SOAR</div>
+      <div class="sol-vendor">Palo Alto Networks</div>
+      <span class="sol-badge sol-commercial">Commercial</span>
+    </div>
+    <div class="sol-card">
+      <div class="sol-icon">🔵</div>
+      <div class="sol-name">Microsoft Sentinel</div>
+      <div class="sol-vendor">Azure / Microsoft</div>
+      <span class="sol-badge sol-commercial">Commercial</span>
+    </div>
+    <div class="sol-card">
+      <div class="sol-icon">🟣</div>
+      <div class="sol-name">IBM QRadar SOAR</div>
+      <div class="sol-vendor">IBM Security</div>
+      <span class="sol-badge sol-commercial">Commercial</span>
+    </div>
+    <div class="sol-card">
+      <div class="sol-icon">🐝</div>
+      <div class="sol-name">TheHive</div>
+      <div class="sol-vendor">StrangeBee</div>
+      <span class="sol-badge sol-open">Open Source</span>
+    </div>
+    <div class="sol-card">
+      <div class="sol-icon">🟠</div>
+      <div class="sol-name">Cortex XSOAR</div>
+      <div class="sol-vendor">Palo Alto</div>
+      <span class="sol-badge sol-commercial">Commercial</span>
+    </div>
+    <div class="sol-card">
+      <div class="sol-icon">🔀</div>
+      <div class="sol-name">Shuffle</div>
+      <div class="sol-vendor">Shuffle.io</div>
+      <span class="sol-badge sol-open">Open Source</span>
+    </div>
+  </div>
+
+  <!-- POURQUOI CE SUJET -->
+  <div class="info-box">
+    <strong>Pourquoi ce sujet m'intéresse ?</strong><br><br>
+    Dans le cadre de mon BTS SISR avec spécialisation cybersécurité, le SOAR représente l'avenir des équipes SOC. La volumétrie croissante des alertes de sécurité rend l'analyse 100% manuelle impossible : c'est le défi central de la cyberdéfense aujourd'hui.<br><br>
+    Ma veille sur ce sujet me permet de comprendre comment les équipes de sécurité font face à ce volume. Des outils open source comme <strong>TheHive + Cortex</strong> sont accessibles et permettent de simuler une vraie chaîne de réponse aux incidents, ce qui est parfait dans une démarche d'apprentissage. Je souhaite approfondir cette thématique dans la poursuite de mes études, notamment via un Bachelor en cybersécurité.
+  </div>
+
+  <!-- SOURCES -->
+  <div class="sources">
+    <h3>Sources de veille</h3>
+    <div class="source-item">
+      <span class="src-tag">Site</span>
+      <a href="https://thehive-project.org" target="_blank" rel="noopener">TheHive Project — Documentation officielle</a>
+    </div>
+    <div class="source-item">
+      <span class="src-tag">Site</span>
+      <a href="https://www.gartner.com" target="_blank" rel="noopener">Gartner — Rapports SOAR / SIEM</a>
+    </div>
+    <div class="source-item">
+      <span class="src-tag">Blog</span>
+      <a href="https://www.splunk.com/en_us/blog/security.html" target="_blank" rel="noopener">Splunk Security Blog</a>
+    </div>
+    <div class="source-item">
+      <span class="src-tag">CERT</span>
+      <a href="https://www.cert.ssi.gouv.fr" target="_blank" rel="noopener">CERT-FR / ANSSI — Bulletins de sécurité</a>
+    </div>
+    <div class="source-item">
+      <span class="src-tag">Veille</span>
+      <a href="https://www.lemagit.fr/definition/SOAR" target="_blank" rel="noopener">LeMagIT — Définition et actualités SOAR</a>
+    </div>
+  </div>
+
+</div>
+
+<footer>© 2025 Sofian Jaglin — BTS SIO SISR · Veille Technologique SOAR</footer>
+
+</body>
+</html>

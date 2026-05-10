@@ -3,124 +3,227 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Projet Téléphonie – Sofian</title>
-  <link rel="stylesheet" href="style.css" />
+  <title>Projets – Sofian Jaglin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;500;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+    :root {
+      --bg:#0a0c10; --surface:#111318; --surface2:#181c24; --border:#2a2f3d;
+      --accent:#00e5ff; --accent2:#7c3aed; --green:#10b981; --orange:#f59e0b;
+      --text:#e2e8f0; --muted:#6b7280;
+    }
+    body { background:var(--bg); color:var(--text); font-family:'Syne',sans-serif; min-height:100vh; line-height:1.6; }
+
+    nav {
+      background:rgba(10,12,16,0.95); border-bottom:1px solid var(--border);
+      padding:0 2rem; display:flex; align-items:center; justify-content:space-between;
+      position:sticky; top:0; z-index:100; backdrop-filter:blur(12px);
+    }
+    .logo { font-family:'Space Mono',monospace; font-size:13px; color:var(--accent); letter-spacing:0.08em; padding:1rem 0; text-decoration:none; }
+    .nav-links { display:flex; gap:0.25rem; flex-wrap:wrap; }
+    .nav-links a { color:var(--muted); font-family:'Syne',sans-serif; font-size:13px; padding:0.5rem 0.875rem; border-radius:6px; text-decoration:none; transition:all 0.2s; letter-spacing:0.03em; border:1px solid transparent; }
+    .nav-links a:hover { color:var(--text); background:var(--surface2); }
+    .nav-links a.active { color:var(--accent); background:rgba(0,229,255,0.08); border-color:rgba(0,229,255,0.2); }
+
+    .container { max-width:900px; margin:0 auto; padding:3rem 2rem; }
+
+    .tag { display:inline-block; font-family:'Space Mono',monospace; font-size:10px; letter-spacing:0.1em; padding:3px 10px; border-radius:4px; margin-bottom:0.75rem; text-transform:uppercase; }
+    .tag-cyan   { background:rgba(0,229,255,0.1);  color:var(--accent); border:1px solid rgba(0,229,255,0.25); }
+    .tag-purple { background:rgba(124,58,237,0.1); color:#a78bfa;       border:1px solid rgba(124,58,237,0.25); }
+    .tag-green  { background:rgba(16,185,129,0.1); color:var(--green);  border:1px solid rgba(16,185,129,0.25); }
+    .tag-orange { background:rgba(245,158,11,0.1); color:var(--orange); border:1px solid rgba(245,158,11,0.25); }
+
+    .page-header { margin-bottom:2.5rem; padding-bottom:2rem; border-bottom:1px solid var(--border); }
+    .page-header h1 { font-size:2.25rem; font-weight:800; letter-spacing:-0.02em; margin-bottom:0.5rem; }
+    .page-header p { color:var(--muted); font-size:15px; }
+
+    .project-card {
+      background:var(--surface); border:1px solid var(--border); border-radius:16px;
+      padding:2rem; margin-bottom:1.5rem; transition:border-color 0.3s, transform 0.2s;
+      position:relative; overflow:hidden;
+    }
+    .project-card:hover { border-color:rgba(0,229,255,0.3); transform:translateY(-3px); }
+    .project-card::before { content:''; position:absolute; top:0; left:0; right:0; height:2px; }
+    .project-card.main::before { background:linear-gradient(90deg,var(--accent),var(--accent2)); }
+    .project-card.stage1::before { background:linear-gradient(90deg,var(--accent),#0099cc); }
+    .project-card.stage2::before { background:linear-gradient(90deg,var(--orange),var(--green)); }
+
+    .project-top { display:flex; align-items:flex-start; justify-content:space-between; gap:1rem; margin-bottom:1rem; flex-wrap:wrap; }
+    .project-title { font-size:1.2rem; font-weight:700; letter-spacing:-0.01em; margin-bottom:6px; }
+    .project-desc { font-size:14px; color:#b0bac8; line-height:1.8; margin-bottom:1.5rem; }
+
+    .project-details { background:var(--surface2); border-radius:10px; padding:1.25rem; margin-bottom:1.25rem; }
+    .detail-row { display:flex; align-items:flex-start; gap:12px; font-size:13px; padding:6px 0; border-bottom:1px solid rgba(255,255,255,0.04); }
+    .detail-row:last-child { border-bottom:none; }
+    .detail-label { font-family:'Space Mono',monospace; font-size:10px; color:var(--muted); width:90px; flex-shrink:0; padding-top:2px; letter-spacing:0.04em; text-transform:uppercase; }
+    .detail-val { color:var(--text); line-height:1.5; }
+
+    .scrum-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(160px,1fr)); gap:10px; margin:1.25rem 0; }
+    .scrum-item { background:var(--bg); border:1px solid var(--border); border-radius:8px; padding:10px 14px; }
+    .scrum-item .si-label { font-family:'Space Mono',monospace; font-size:9px; color:var(--accent); letter-spacing:0.08em; text-transform:uppercase; margin-bottom:4px; }
+    .scrum-item .si-val { font-size:12px; color:var(--text); line-height:1.5; }
+
+    .tech-tags { display:flex; flex-wrap:wrap; gap:6px; padding-top:1.25rem; border-top:1px solid var(--border); }
+    .tech-tag { background:var(--surface2); border:1px solid var(--border); border-radius:6px; font-size:11px; color:var(--muted); padding:4px 10px; font-family:'Space Mono',monospace; transition:all 0.2s; }
+    .tech-tag:hover { color:var(--text); border-color:var(--muted); }
+
+    .bilan-grid { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin:1.25rem 0; }
+    .bilan-card { background:var(--surface2); border:1px solid var(--border); border-radius:10px; padding:1rem 1.25rem; }
+    .bilan-card h4 { font-size:11px; font-family:'Space Mono',monospace; color:var(--green); letter-spacing:0.06em; margin-bottom:0.75rem; text-transform:uppercase; }
+    .bilan-card.neg h4 { color:#f87171; }
+    .bilan-card li { font-size:12px; color:var(--muted); margin-left:1rem; margin-bottom:4px; line-height:1.5; }
+
+    .conclusion-box {
+      background:rgba(0,229,255,0.04); border:1px solid rgba(0,229,255,0.15);
+      border-left:3px solid var(--accent); border-radius:10px;
+      padding:1.25rem 1.5rem; font-size:14px; line-height:1.8; font-style:italic; color:#b0bac8;
+    }
+
+    .section-label { font-family:'Space Mono',monospace; font-size:10px; letter-spacing:0.12em; color:var(--muted); text-transform:uppercase; margin:2.5rem 0 1.25rem; display:flex; align-items:center; gap:8px; }
+    .section-label::after { content:''; flex:1; height:1px; background:var(--border); }
+
+    footer { text-align:center; padding:2rem; color:var(--muted); font-family:'Space Mono',monospace; font-size:11px; border-top:1px solid var(--border); margin-top:4rem; }
+  </style>
 </head>
 <body>
-  <nav class="navbar">
-    <div class="logo">SOFIAN / SISR</div>
-    <ul class="nav-links">
-      <li><a href="index.html">Accueil</a></li>
-      <li><a href="certification.html">Certifications</a></li>
-      <li><a href="projets.html" class="active">Projet</a></li>
-    </ul>
-  </nav>
 
-  <header class="hero small-hero">
-    <h1>Projet Téléphonie & Visioconférence</h1>
-    <p>Mission en groupe : Sofian · Anthoine · Salim · Owen</p>
-  </header>
+<nav>
+  <a class="logo" href="index.html">SOFIAN_JAGLIN.portfolio</a>
+  <div class="nav-links">
+    <a href="index.html">Accueil</a>
+    <a href="stages.html">Stages</a>
+    <a href="veille.html">Veille</a>
+    <a href="projets.html" class="active">Projets</a>
+    <a href="certification.html">Certifications</a>
+  </div>
+</nav>
 
-  <section class="section">
-    <h2>Présentation du projet</h2>
-    <p>
-      Ce projet a été réalisé dans le cadre du BTS SIO SISR. Le but était de mettre en place plusieurs services
-      techniques pour un client : un système complet de <strong>téléphonie IP (Asterisk)</strong>, un service de
-      <strong>visioconférence (Jitsi)</strong> ainsi qu’une <strong>supervision active et passive</strong> des équipements.
+<div class="container">
+
+  <div class="page-header">
+    <span class="tag tag-cyan">Réalisations techniques</span>
+    <h1>Mes Projets</h1>
+    <p>Projets réalisés en BTS SIO SISR et en stage — téléphonie, supervision, ITSM</p>
+  </div>
+
+  <!-- PROJET PRINCIPAL : TÉLÉPHONIE -->
+  <div class="section-label">Projet BTS</div>
+  <div class="project-card main">
+    <div class="project-top">
+      <div>
+        <span class="tag tag-orange">Projet groupe · BTS SIO SISR</span>
+        <div class="project-title">Téléphonie IP & Visioconférence</div>
+      </div>
+    </div>
+    <p class="project-desc">
+      Déploiement complet d'une infrastructure de communication pour un client fictif dans le cadre du BTS SIO SISR. Mission réalisée en groupe de 4 (Sofian, Anthoine, Salim, Owen) avec une organisation en méthode SCRUM. L'objectif : livrer un système de téléphonie IP fonctionnel, un service de visioconférence, une supervision active et une documentation complète.
     </p>
-    <p>
-      Le travail s’est effectué en groupe (Sofian, Anthoine, Salim et Owen) avec une organisation basée sur la méthode SCRUM.
-    </p>
-  </section>
 
- <section class="section">
-  <h2>Besoin exprimé par le client</h2>
-  <ul>
-    <li><span class="popup">Installer un serveur Asterisk pour la téléphonie IP
-      <span class="popuptext"><img src="images/asterisk.png" alt="Asterisk screenshot"><br>Serveur de téléphonie IP avec softphones et téléphones IP</span>
-    </span> (softphones + téléphones IP).</li>
+    <div class="project-details">
+      <div class="detail-row"><div class="detail-label">Objectif</div><div class="detail-val">Mise en place d'une infrastructure de communication complète (téléphonie + visio + supervision)</div></div>
+      <div class="detail-row"><div class="detail-label">Équipe</div><div class="detail-val">Sofian · Anthoine · Salim · Owen</div></div>
+      <div class="detail-row"><div class="detail-label">Méthode</div><div class="detail-val">SCRUM — sprints hebdomadaires, daily meetings, backlog, sprint review et rétrospective</div></div>
+    </div>
 
-    <li><span class="popup">Installer un serveur Jitsi pour la visioconférence
-      <span class="popuptext"><img src="images/jitsi.png" alt="Jitsi screenshot"><br>Service de visioconférence via téléphones mobiles</span>
-    </span> via téléphones mobiles.</li>
+    <div style="font-family:'Space Mono',monospace;font-size:10px;color:var(--muted);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:0.75rem;">Organisation SCRUM</div>
+    <div class="scrum-grid">
+      <div class="scrum-item"><div class="si-label">Scrum Master</div><div class="si-val">Désigné pour coordonner le travail du groupe</div></div>
+      <div class="scrum-item"><div class="si-label">Backlog</div><div class="si-val">Asterisk, Jitsi, Zabbix, Docs, Schéma réseau</div></div>
+      <div class="scrum-item"><div class="si-label">Daily</div><div class="si-val">Point rapide en début de chaque séance</div></div>
+      <div class="scrum-item"><div class="si-label">Review</div><div class="si-val">Tests fonctionnels : appels IP, softphones, Jitsi</div></div>
+    </div>
 
-    <li><span class="popup">Mettre en place une supervision Zabbix
-      <span class="popuptext"><img src="images/zabbix.png" alt="Zabbix screenshot"><br>Surveillance des serveurs, switchs et bornes WiFi</span>
-    </span> pour surveiller serveurs, commutateurs et borne WiFi.</li>
+    <div style="font-family:'Space Mono',monospace;font-size:10px;color:var(--muted);letter-spacing:0.08em;text-transform:uppercase;margin:1.25rem 0 0.75rem;">Réalisations techniques</div>
+    <div class="project-details">
+      <div class="detail-row"><div class="detail-label">Asterisk</div><div class="detail-val">Serveur téléphonie IP — comptes SIP, softphone Linphone/MicroSIP, téléphones Fanvil PoE</div></div>
+      <div class="detail-row"><div class="detail-label">Jitsi</div><div class="detail-val">Serveur de visioconférence — accès mobile, réunions internes</div></div>
+      <div class="detail-row"><div class="detail-label">Zabbix</div><div class="detail-val">Supervision réseau — serveurs, switchs Cisco/Linksys/Zyxel, bornes WiFi via SNMP</div></div>
+      <div class="detail-row"><div class="detail-label">Schéma</div><div class="detail-val">Schéma réseau détaillé réalisé sur draw.io</div></div>
+      <div class="detail-row"><div class="detail-label">Docs</div><div class="detail-val">Procédures techniques : SSH, VM, switchs, SIP, téléphones IP</div></div>
+    </div>
 
-    <li><span class="popup">Fournir des procédures techniques
-      <span class="popuptext"><img src="images/docs.png" alt="Documentation screenshot"><br>Procédures et documentation complète</span>
-    </span> et une documentation complète.</li>
+    <div class="bilan-grid">
+      <div class="bilan-card">
+        <h4>✓ Points positifs</h4>
+        <ul>
+          <li>Très bonne communication d'équipe</li>
+          <li>Répartition claire grâce au backlog</li>
+          <li>Tests fonctionnels validés (Asterisk + Jitsi + Zabbix)</li>
+        </ul>
+      </div>
+      <div class="bilan-card neg">
+        <h4>△ À améliorer</h4>
+        <ul>
+          <li>Mieux anticiper le temps requis pour Zabbix</li>
+          <li>Améliorer la précision des procédures</li>
+          <li>Renforcer l'organisation des premiers sprints</li>
+        </ul>
+      </div>
+    </div>
 
-    <li><span class="popup">Déployer une prise de contrôle à distance
-      <span class="popuptext"><img src="images/remote.png" alt="Remote screenshot"><br>Accès pour l’administration à distance</span>
-    </span> pour l’administration.</li>
-  </ul>
-</section>
+    <div class="conclusion-box" style="margin-bottom:1.25rem;">
+      Ce projet m'a permis d'approfondir mes compétences en téléphonie IP, supervision réseau et méthodes agiles. Travailler en groupe m'a aidé à mieux comprendre l'importance de la communication, de la répartition des tâches et de la documentation.
+    </div>
 
-  <section class="section">
-    <h2>Organisation : Méthode SCRUM</h2>
-    <p>Notre groupe a suivi une démarche SCRUM :</p>
-    <ul>
-      <li><strong>Scrum Master :</strong> désigné pour coordonner le travail.</li>
-      <li><strong>Réunions quotidiennes :</strong> point rapide en début de séance.</li>
-      <li><strong>Backlog :</strong> liste des tâches (Asterisk, Jitsi, supervision, docs...).</li>
-      <li><strong>Sprint Planning :</strong> répartition des tâches entre les membres.</li>
-      <li><strong>Sprint Review :</strong> vérification des services (tests téléphones IP, softphones, Jitsi...).</li>
-      <li><strong>Rétrospective :</strong> analyse des réussites et difficultés.</li>
-    </ul>
-  </section>
+    <div class="tech-tags">
+      <span class="tech-tag">Asterisk</span>
+      <span class="tech-tag">Jitsi</span>
+      <span class="tech-tag">Zabbix</span>
+      <span class="tech-tag">Linphone</span>
+      <span class="tech-tag">Fanvil SIP</span>
+      <span class="tech-tag">SNMP</span>
+      <span class="tech-tag">draw.io</span>
+      <span class="tech-tag">SCRUM</span>
+    </div>
+  </div>
 
-  <section class="section">
-    <h2>Réalisation technique</h2>
-    <ul>
-      <li>Installation d’un serveur <strong>Asterisk</strong> (appels internes, comptes SIP, softphone Linphone, MicroSIP...).</li>
-      <li>Configuration de <strong>téléphones IP</strong> (Fanvil SIP X3SG – PoE).</li>
-      <li>Installation d’un serveur <strong>Jitsi</strong> pour la visioconférence.</li>
-      <li>Supervision avec <strong>Zabbix</strong> : serveurs, switchs (Cisco/Linksys/Zyxel), borne WiFi.</li>
-      <li>Création d’un <strong>schéma réseau détaillé</strong> (draw.io).</li>
-      <li>Création de <strong>procédures techniques</strong> : connexion SSH, accès VM, accès commutateurs, config SIP, etc.</li>
-      <li>Tests croisés : communication entre softphones, appels depuis téléphone IP, visioconf via mobile.</li>
-    </ul>
-  </section>
+  <!-- PROJETS DE STAGE -->
+  <div class="section-label">Projets de stage</div>
 
-  <section class="section">
-    <h2>Synthèse : Points positifs / améliorations</h2>
-    <p><strong>Ce qui a fonctionné :</strong></p>
-    <ul>
-      <li>Très bonne communication entre les membres du groupe.</li>
-      <li>Répartition claire grâce au backlog SCRUM.</li>
-      <li>Résolution rapide des problèmes techniques.</li>
-      <li>Tests fonctionnels validés (Asterisk + Jitsi + Zabbix).</li>
-    </ul>
+  <div class="project-card stage1">
+    <span class="tag tag-cyan">Stage 1 · Labo de Mathématiques</span>
+    <div class="project-title">Centralisation de logs — Graylog</div>
+    <p class="project-desc">Installation et configuration d'un système de centralisation de logs sur Linux Mint. Mise en place de pipelines, extracteurs de données et dashboards pour la supervision des événements système du laboratoire de mathématiques.</p>
+    <div class="tech-tags">
+      <span class="tech-tag">Graylog</span>
+      <span class="tech-tag">Linux Mint</span>
+      <span class="tech-tag">Elasticsearch</span>
+      <span class="tech-tag">MongoDB</span>
+      <span class="tech-tag">Syslog</span>
+    </div>
+  </div>
 
-    <p><strong>À améliorer :</strong></p>
-    <ul>
-      <li>Meilleure anticipation du temps requis pour Zabbix.</li>
-      <li>Améliorer la précision des procédures techniques.</li>
-      <li>Renforcer l'organisation lors des premiers sprints.</li>
-    </ul>
-  </section>
+  <div class="project-card stage1">
+    <span class="tag tag-cyan">Stage 1 · Labo de Mathématiques</span>
+    <div class="project-title">GLPI + MySQL + Agents FusionInventory</div>
+    <p class="project-desc">Déploiement d'un système complet de gestion des incidents et du parc informatique. Configuration de GLPI connecté à une base MySQL, déploiement des agents FusionInventory sur les postes du laboratoire pour l'inventaire automatique des ressources.</p>
+    <div class="tech-tags">
+      <span class="tech-tag">GLPI</span>
+      <span class="tech-tag">MySQL</span>
+      <span class="tech-tag">FusionInventory</span>
+      <span class="tech-tag">Linux</span>
+      <span class="tech-tag">ITSM</span>
+    </div>
+  </div>
 
-  <section class="section">
-    <h2>Conclusion personnelle</h2>
-    <p>
-      Ce projet m’a permis d’approfondir mes compétences en <strong>téléphonie IP</strong>, en <strong>supervision</strong> et en
-      <strong>méthodes de travail agiles</strong>. Travailler en groupe m’a aidé à mieux comprendre l’importance de la
-      communication, de la répartition des tâches et de la documentation. Ce projet m’a donné une réelle expérience
-      professionnelle et technique très utile pour la suite de mon parcours en SISR.
-    </p>
-  </section>
+  <div class="project-card stage2">
+    <span class="tag tag-orange">Stage 2 · XEFI</span>
+    <div class="project-title">Supervision réseau — Zabbix</div>
+    <p class="project-desc">Mise en place et administration de la supervision réseau via Zabbix chez les clients de XEFI. Surveillance active et passive des serveurs Windows, switchs Cisco/Linksys/Zyxel et bornes WiFi via SNMP. Création de dashboards et de triggers d'alerte personnalisés.</p>
+    <div class="tech-tags">
+      <span class="tech-tag">Zabbix</span>
+      <span class="tech-tag">SNMP</span>
+      <span class="tech-tag">Cisco</span>
+      <span class="tech-tag">Windows Server</span>
+      <span class="tech-tag">Dashboards</span>
+    </div>
+  </div>
+
+</div>
+
+<footer>© 2025 Sofian Jaglin — BTS SIO SISR</footer>
 
 </body>
-  <script>
-document.querySelectorAll('.popup').forEach(el => {
-  el.addEventListener('mouseenter', () => {
-    el.classList.add('show');
-  });
-  el.addEventListener('mouseleave', () => {
-    el.classList.remove('show');
-  });
-});
-</script>
 </html>
