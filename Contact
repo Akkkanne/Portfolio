@@ -1,0 +1,22 @@
+<section id="contact">
+  <h2>Me Contacter</h2>
+  <div class="contact-container">
+    <!-- Email -->
+    <a href="mailto:ton.nom@email.com" class="contact-card mail">
+      <i class="fas fa-envelope"></i>
+      <span>Email</span>
+    </a>
+
+    <!-- LinkedIn -->
+    <a href="https://linkedin.com/in/ton-profil" target="_blank" class="contact-card linkedin">
+      <i class="fab fa-linkedin"></i>
+      <span>LinkedIn</span>
+    </a>
+
+    <!-- GitHub -->
+    <a href="https://github.com/ton-pseudo" target="_blank" class="contact-card github">
+      <i class="fab fa-github"></i>
+      <span>GitHub</span>
+    </a>
+  </div>
+</section>
