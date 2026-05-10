@@ -1,42 +1,47 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact | Sofian Jaglin</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="contact.css">
 </head>
-<body style="background-color: #0f111a; color: #cfd8dc;">
 
-    <nav class="navbar">
-        <div class="logo">SOFIAN_JAGLIN.portfolio</div>
-        <ul class="nav-links">
-            <li><a href="index.html">Accueil</a></li>
-            <li><a href="cv.html">Mon Cv</a></li>
-            <li><a href="contact.html" style="color: #00bfff; border: 1px solid #00bfff; padding: 5px 10px; border-radius: 5px;">Contact</a></li>
-        </ul>
-    </nav>
+<body>
 
-    <div class="hero" style="padding: 60px 20px;">
-        <h1 style="font-size: 48px; color: #ffffff;">Me <span style="color: #00bfff; text-shadow: 0 0 10px #00bfff;">Contacter</span></h1>
+  <header class="navbar">
+    <a href="index.html">Home</a>
+    <a href="cv.html">CV</a>
+    <a href="contact.html" class="active">Contact</a>
+  </header>
+
+  <main class="page">
+
+    <h1>Contact</h1>
+
+    <div class="contact-container">
+
+      <div class="card">
+
+        <form>
+          <label>Nom</label>
+          <input type="text" placeholder="Ton nom">
+
+          <label>Email</label>
+          <input type="email" placeholder="Ton email">
+
+          <label>Message</label>
+          <textarea placeholder="Ton message"></textarea>
+
+          <button type="submit" class="btn">Envoyer</button>
+        </form>
+
+      </div>
+
     </div>
 
-    <section class="section" style="border-left: 3px solid #00bfff;">
-        <h2>Réseaux Sociaux</h2>
-        <div class="cert-grid">
-            <div class="cert-card" style="text-align: center;">
-                <i class="fab fa-linkedin" style="font-size: 40px; color: #00bfff;"></i>
-                <h3>LinkedIn</h3>
-                <a href="TON_LIEN_LINKEDIN" target="_blank" class="btn">Voir le profil</a>
-            </div>
-            <div class="cert-card" style="text-align: center;">
-                <i class="fas fa-envelope" style="font-size: 40px; color: #00bfff;"></i>
-                <h3>Email</h3>
-                <a href="mailto:ton_email@gmail.com" class="btn">Envoyer un mail</a>
-            </div>
-        </div>
-    </section>
+  </main>
 
 </body>
 </html>
