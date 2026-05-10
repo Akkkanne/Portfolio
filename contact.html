@@ -1,47 +1,398 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact</title>
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="contact.css">
-</head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact – Sofian Jaglin</title>
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
+    :root {
+      --bg: #0a0c10;
+      --surface: #111318;
+      --border: #1e2230;
+      --accent: #00e5ff;
+      --accent2: #7b61ff;
+      --text: #e8eaf0;
+      --muted: #6b7280;
+      --mono: 'Share Tech Mono', monospace;
+      --sans: 'Rajdhani', sans-serif;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--sans);
+      min-height: 100vh;
+    }
+
+    /* NAV — copie exacte du style du portfolio */
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 2rem;
+      border-bottom: 1px solid var(--border);
+      background: var(--surface);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .nav-logo {
+      font-family: var(--mono);
+      font-size: 1rem;
+      color: var(--accent);
+      letter-spacing: 0.08em;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+    }
+
+    nav ul a {
+      font-family: var(--sans);
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: var(--muted);
+      text-decoration: none;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+
+    nav ul a:hover, nav ul a.active {
+      color: var(--accent);
+    }
+
+    /* MAIN */
+    main {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 4rem 2rem;
+    }
+
+    .page-header {
+      margin-bottom: 3rem;
+    }
+
+    .page-label {
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      color: var(--accent);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+    }
+
+    h1 {
+      font-family: var(--sans);
+      font-size: 2.8rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      line-height: 1.1;
+    }
+
+    h1 span {
+      color: var(--accent);
+    }
+
+    .page-sub {
+      margin-top: 0.75rem;
+      color: var(--muted);
+      font-size: 1.05rem;
+      font-weight: 400;
+    }
+
+    /* CONTACT CARDS GRID */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1rem;
+      margin-top: 2.5rem;
+    }
+
+    .contact-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      text-decoration: none;
+      color: inherit;
+      transition: border-color 0.2s, transform 0.2s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contact-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 3px;
+      height: 100%;
+      background: var(--accent);
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+
+    .contact-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    .contact-card:hover::before {
+      opacity: 1;
+    }
+
+    .card-icon {
+      font-size: 1.4rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .card-label {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      color: var(--accent);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .card-value {
+      font-family: var(--sans);
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text);
+      word-break: break-all;
+    }
+
+    .card-action {
+      margin-top: auto;
+      padding-top: 0.75rem;
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      color: var(--muted);
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: color 0.2s;
+    }
+
+    .contact-card:hover .card-action {
+      color: var(--accent);
+    }
+
+    .card-action::after {
+      content: '→';
+    }
+
+    /* DIVIDER */
+    .divider {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin: 3rem 0 2rem;
+    }
+
+    .divider span {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      color: var(--muted);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .divider::before, .divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    /* FORM */
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    label {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      color: var(--accent);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    input, textarea {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 0.7rem 1rem;
+      color: var(--text);
+      font-family: var(--sans);
+      font-size: 0.95rem;
+      outline: none;
+      transition: border-color 0.2s;
+      resize: none;
+    }
+
+    input:focus, textarea:focus {
+      border-color: var(--accent);
+    }
+
+    input::placeholder, textarea::placeholder {
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+
+    textarea { min-height: 130px; }
+
+    .btn-send {
+      align-self: flex-start;
+      background: transparent;
+      border: 1px solid var(--accent);
+      color: var(--accent);
+      font-family: var(--mono);
+      font-size: 0.85rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.75rem 2rem;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .btn-send:hover {
+      background: var(--accent);
+      color: var(--bg);
+    }
+
+    /* FOOTER */
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      color: var(--muted);
+      border-top: 1px solid var(--border);
+      margin-top: 4rem;
+    }
+
+    @media (max-width: 600px) {
+      .form-row { grid-template-columns: 1fr; }
+      h1 { font-size: 2rem; }
+    }
+  </style>
+</head>
 <body>
 
-  <header class="navbar">
-    <a href="index.html">Home</a>
-    <a href="cv.html">CV</a>
-    <a href="contact.html" class="active">Contact</a>
-  </header>
+  <nav>
+    <span class="nav-logo">SOFIAN / SISR</span>
+    <ul>
+      <li><a href="index.html">Accueil</a></li>
+      <li><a href="certifications.html">Certifications</a></li>
+      <li><a href="projets.html">Projets</a></li>
+      <li><a href="cv.html">CV</a></li>
+      <li><a href="contact.html" class="active">Contact</a></li>
+    </ul>
+  </nav>
 
-  <main class="page">
-
-    <h1>Contact</h1>
-
-    <div class="contact-container">
-
-      <div class="card">
-
-        <form>
-          <label>Nom</label>
-          <input type="text" placeholder="Ton nom">
-
-          <label>Email</label>
-          <input type="email" placeholder="Ton email">
-
-          <label>Message</label>
-          <textarea placeholder="Ton message"></textarea>
-
-          <button type="submit" class="btn">Envoyer</button>
-        </form>
-
-      </div>
-
+  <main>
+    <div class="page-header">
+      <p class="page-label">// contact</p>
+      <h1>Me <span>contacter</span></h1>
+      <p class="page-sub">Disponible pour alternance, stage ou opportunités en cybersécurité & réseaux.</p>
     </div>
 
+    <div class="contact-grid">
+      <a class="contact-card" href="mailto:nktsofian@gmail.com">
+        <div class="card-icon">✉</div>
+        <div class="card-label">Email</div>
+        <div class="card-value">nktsofian@gmail.com</div>
+        <div class="card-action">Envoyer un mail</div>
+      </a>
+
+      <a class="contact-card" href="tel:+33760437938">
+        <div class="card-icon">☎</div>
+        <div class="card-label">Téléphone</div>
+        <div class="card-value">07 60 43 79 38</div>
+        <div class="card-action">Appeler</div>
+      </a>
+
+      <a class="contact-card" href="https://www.linkedin.com/in/sofian-jaglin-33532535a" target="_blank" rel="noopener">
+        <div class="card-icon">in</div>
+        <div class="card-label">LinkedIn</div>
+        <div class="card-value">Sofian Jaglin</div>
+        <div class="card-action">Voir le profil</div>
+      </a>
+
+      <a class="contact-card" href="https://github.com/Akkkanne" target="_blank" rel="noopener">
+        <div class="card-icon">&lt;/&gt;</div>
+        <div class="card-label">GitHub</div>
+        <div class="card-value">@Akkkanne</div>
+        <div class="card-action">Voir les projets</div>
+      </a>
+    </div>
+
+    <div class="divider"><span>ou envoie un message</span></div>
+
+    <form class="contact-form" onsubmit="handleSubmit(event)">
+      <div class="form-row">
+        <div class="field">
+          <label for="name">Nom</label>
+          <input type="text" id="name" placeholder="Ton nom" required />
+        </div>
+        <div class="field">
+          <label for="email">Email</label>
+          <input type="email" id="email" placeholder="ton@email.com" required />
+        </div>
+      </div>
+      <div class="field">
+        <label for="subject">Sujet</label>
+        <input type="text" id="subject" placeholder="Alternance, stage, collaboration..." />
+      </div>
+      <div class="field">
+        <label for="message">Message</label>
+        <textarea id="message" placeholder="Ton message..." required></textarea>
+      </div>
+      <button type="submit" class="btn-send">Envoyer →</button>
+    </form>
   </main>
+
+  <footer>
+    © 2025 Sofian Jaglin — BTS SIO SISR
+  </footer>
+
+  <script>
+    function handleSubmit(e) {
+      e.preventDefault();
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const subject = document.getElementById('subject').value || 'Contact Portfolio';
+      const message = document.getElementById('message').value;
+      const mailto = `mailto:nktsofian@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent('De : ' + name + '\nEmail : ' + email + '\n\n' + message)}`;
+      window.location.href = mailto;
+    }
+  </script>
 
 </body>
 </html>
