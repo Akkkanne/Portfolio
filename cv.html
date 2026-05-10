@@ -1,16 +1,40 @@
-<section id="cv">
-  <h2>Mon Curriculum Vitae</h2>
-  <div class="cv-box">
-    <p>Vous pouvez consulter ou télécharger mon CV ci-dessous :</p>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon CV - Portfolio</title>
     
-    <!-- Bouton Télécharger -->
-    <a href="assets/mon-cv.pdf" download class="download-btn">
-      <i class="fas fa-file-download"></i> Télécharger le CV (PDF)
-    </a>
+    <link rel="stylesheet" href="style.css">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
 
-    <!-- Optionnel : Afficher un aperçu image de ton CV -->
-    <div class="cv-preview">
-       <img src="assets/image-cv.jpg" alt="Aperçu du CV" style="width:100%; max-width:500px; border: 1px solid #ccc;">
+    <nav class="navbar">
+        <div class="logo">Portfolio</div>
+        <ul class="nav-links">
+            <li><a href="index.html">Accueil</a></li>
+        </ul>
+    </nav>
+
+    <div class="hero small-hero">
+        <h1>Mon Curriculum Vitae</h1>
     </div>
-  </div>
-</section>
+
+    <section class="section" id="cv">
+        <div class="cv-box" style="text-align: center;">
+            <p>Vous pouvez consulter ou télécharger mon CV ci-dessous :</p>
+            
+            <a href="assets/mon-cv.pdf" download class="download-btn">
+                <i class="fas fa-file-download"></i> Télécharger le CV (PDF)
+            </a>
+
+            <div class="cv-preview" style="margin-top: 30px;">
+                <img src="assets/image-cv.jpg" alt="Aperçu du CV" style="width:100%; max-width:600px; border-radius: 8px; border: 2px solid #00bfff; box-shadow: 0 0 15px rgba(0,191,255,0.4);">
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>
