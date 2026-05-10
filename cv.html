@@ -2,37 +2,35 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mon CV - Portfolio</title>
-    
-    <link rel="stylesheet" href="style.css">
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <title>Contact | Cyber Portfolio</title>
+    <link rel="stylesheet" href="style.css"> <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
 <body>
 
     <nav class="navbar">
-        <div class="logo">Portfolio</div>
+        <div class="logo">PORTFOLIO</div>
         <ul class="nav-links">
             <li><a href="index.html">Accueil</a></li>
+            <li><a href="cv.html">CV</a></li>
+            <li><a href="contact.html">Contact</a></li>
         </ul>
     </nav>
 
-    <div class="hero small-hero">
-        <h1>Mon Curriculum Vitae</h1>
-    </div>
+    <header class="hero">
+        <h1>ME CONTACTER</h1>
+        <p>Réseaux sociaux & Messagerie</p>
+    </header>
 
-    <section class="section" id="cv">
-        <div class="cv-box" style="text-align: center;">
-            <p>Vous pouvez consulter ou télécharger mon CV ci-dessous :</p>
-            
-            <a href="assets/mon-cv.pdf" download class="download-btn">
-                <i class="fas fa-file-download"></i> Télécharger le CV (PDF)
+    <section class="section">
+        <div class="contact-container">
+            <a href="mailto:TON_MAIL@gmail.com" class="contact-card mail">
+                <i class="fas fa-envelope"></i>
+                <span>Email</span>
             </a>
-
-            <div class="cv-preview" style="margin-top: 30px;">
-                <img src="assets/image-cv.jpg" alt="Aperçu du CV" style="width:100%; max-width:600px; border-radius: 8px; border: 2px solid #00bfff; box-shadow: 0 0 15px rgba(0,191,255,0.4);">
-            </div>
+            <a href="TON_LIEN_LINKEDIN" target="_blank" class="contact-card linkedin">
+                <i class="fab fa-linkedin"></i>
+                <span>LinkedIn</span>
+            </a>
         </div>
     </section>
 
