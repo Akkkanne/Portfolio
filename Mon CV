@@ -1,0 +1,16 @@
+<section id="cv">
+  <h2>Mon Curriculum Vitae</h2>
+  <div class="cv-box">
+    <p>Vous pouvez consulter ou télécharger mon CV ci-dessous :</p>
+    
+    <!-- Bouton Télécharger -->
+    <a href="assets/mon-cv.pdf" download class="download-btn">
+      <i class="fas fa-file-download"></i> Télécharger le CV (PDF)
+    </a>
+
+    <!-- Optionnel : Afficher un aperçu image de ton CV -->
+    <div class="cv-preview">
+       <img src="assets/image-cv.jpg" alt="Aperçu du CV" style="width:100%; max-width:500px; border: 1px solid #ccc;">
+    </div>
+  </div>
+</section>
