@@ -15,110 +15,55 @@
       --text:#e2e8f0; --muted:#6b7280;
     }
     body { background:var(--bg); color:var(--text); font-family:'Syne',sans-serif; min-height:100vh; line-height:1.6; }
-
-    nav {
-      background:rgba(10,12,16,0.95); border-bottom:1px solid var(--border);
-      padding:0 2rem; display:flex; align-items:center; justify-content:space-between;
-      position:sticky; top:0; z-index:100; backdrop-filter:blur(12px);
-    }
+    nav { background:rgba(10,12,16,0.95); border-bottom:1px solid var(--border); padding:0 2rem; display:flex; align-items:center; justify-content:space-between; position:sticky; top:0; z-index:100; backdrop-filter:blur(12px); }
     .logo { font-family:'Space Mono',monospace; font-size:13px; color:var(--accent); letter-spacing:0.08em; padding:1rem 0; text-decoration:none; }
     .nav-links { display:flex; gap:0.25rem; flex-wrap:wrap; }
     .nav-links a { color:var(--muted); font-family:'Syne',sans-serif; font-size:13px; padding:0.5rem 0.875rem; border-radius:6px; text-decoration:none; transition:all 0.2s; letter-spacing:0.03em; border:1px solid transparent; }
     .nav-links a:hover { color:var(--text); background:var(--surface2); }
     .nav-links a.active { color:var(--accent); background:rgba(0,229,255,0.08); border-color:rgba(0,229,255,0.2); }
-
     .container { max-width:900px; margin:0 auto; padding:3rem 2rem; }
-
-    .page-header { margin-bottom:3rem; padding-bottom:2rem; border-bottom:1px solid var(--border); }
-    .tag {
-      display:inline-block; font-family:'Space Mono',monospace; font-size:10px;
-      letter-spacing:0.1em; padding:3px 10px; border-radius:4px; margin-bottom:0.75rem; text-transform:uppercase;
-    }
+    .tag { display:inline-block; font-family:'Space Mono',monospace; font-size:10px; letter-spacing:0.1em; padding:3px 10px; border-radius:4px; margin-bottom:0.75rem; text-transform:uppercase; }
     .tag-purple { background:rgba(124,58,237,0.1); color:#a78bfa; border:1px solid rgba(124,58,237,0.25); }
+    .page-header { margin-bottom:2.5rem; padding-bottom:2rem; border-bottom:1px solid var(--border); }
     .page-header h1 { font-size:2.25rem; font-weight:800; letter-spacing:-0.02em; margin-bottom:0.5rem; }
     .page-header p { color:var(--muted); font-size:15px; }
-
-    /* TIMELINE */
+    .profil-card { background:var(--surface); border:1px solid var(--border); border-left:3px solid var(--accent2); border-radius:14px; padding:1.5rem 1.75rem; margin-bottom:2.5rem; }
+    .profil-card h3 { font-size:11px; font-weight:700; color:#a78bfa; margin-bottom:0.75rem; font-family:'Space Mono',monospace; letter-spacing:0.08em; text-transform:uppercase; }
+    .profil-card p { font-size:14px; color:#b0bac8; line-height:1.8; }
     .timeline { position:relative; padding-left:2rem; }
-    .timeline::before {
-      content:''; position:absolute; left:0; top:8px; bottom:8px;
-      width:2px; background:linear-gradient(to bottom, var(--accent), var(--accent2));
-      border-radius:2px;
-    }
-
-    .stage-card {
-      background:var(--surface); border:1px solid var(--border); border-radius:16px;
-      padding:2rem; margin-bottom:2rem; position:relative; overflow:hidden;
-      transition:border-color 0.3s, transform 0.3s;
-    }
+    .timeline::before { content:''; position:absolute; left:0; top:8px; bottom:8px; width:2px; background:linear-gradient(to bottom, var(--accent), var(--accent2)); border-radius:2px; }
+    .stage-card { background:var(--surface); border:1px solid var(--border); border-radius:16px; padding:2rem; margin-bottom:2rem; position:relative; overflow:hidden; transition:border-color 0.3s, transform 0.3s; }
     .stage-card:hover { border-color:rgba(0,229,255,0.3); transform:translateX(4px); }
     .stage-card::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; }
     .stage-card.labo::before { background:linear-gradient(90deg, var(--accent), var(--accent2)); }
     .stage-card.xefi::before { background:linear-gradient(90deg, var(--orange), var(--green)); }
-
-    /* bullet sur la timeline */
-    .stage-card::after {
-      content:''; position:absolute; left:-2.6rem; top:2rem;
-      width:12px; height:12px; border-radius:50%; border:2px solid var(--accent);
-      background:var(--bg);
-    }
-
-    .stage-top {
-      display:flex; align-items:flex-start; justify-content:space-between;
-      gap:1rem; margin-bottom:1.5rem; flex-wrap:wrap;
-    }
-    .stage-role { color:var(--accent); font-size:12px; font-weight:500; margin-bottom:4px; letter-spacing:0.04em; text-transform:uppercase; }
+    .stage-card::after { content:''; position:absolute; left:-2.6rem; top:2rem; width:12px; height:12px; border-radius:50%; border:2px solid var(--accent); background:var(--bg); }
+    .stage-top { display:flex; align-items:flex-start; justify-content:space-between; gap:1rem; margin-bottom:1.5rem; flex-wrap:wrap; }
+    .stage-role { font-size:11px; font-weight:600; margin-bottom:4px; letter-spacing:0.06em; text-transform:uppercase; color:var(--accent); }
+    .stage-card.xefi .stage-role { color:var(--orange); }
     .stage-org { font-size:1.3rem; font-weight:800; letter-spacing:-0.01em; margin-bottom:4px; }
     .stage-location { color:var(--muted); font-size:13px; }
-    .stage-badge {
-      font-family:'Space Mono',monospace; font-size:11px; color:var(--accent);
-      background:rgba(0,229,255,0.08); border:1px solid rgba(0,229,255,0.25);
-      padding:6px 14px; border-radius:6px; white-space:nowrap; height:fit-content;
-    }
+    .stage-badge { font-family:'Space Mono',monospace; font-size:11px; padding:6px 14px; border-radius:6px; white-space:nowrap; color:var(--accent); background:rgba(0,229,255,0.08); border:1px solid rgba(0,229,255,0.25); }
     .stage-badge.xefi-badge { color:var(--orange); background:rgba(245,158,11,0.08); border-color:rgba(245,158,11,0.25); }
-
-    .stage-desc {
-      font-size:14px; line-height:1.8; color:#b0bac8;
-      background:var(--surface2); border-radius:10px; padding:1.25rem;
-      margin-bottom:1.5rem; border-left:3px solid rgba(0,229,255,0.3);
-    }
+    .stage-desc { font-size:14px; line-height:1.8; color:#b0bac8; background:var(--surface2); border-radius:10px; padding:1.25rem; margin-bottom:1.5rem; border-left:3px solid rgba(0,229,255,0.3); }
     .stage-card.xefi .stage-desc { border-left-color:rgba(245,158,11,0.4); }
-
-    .missions-title {
-      font-family:'Space Mono',monospace; font-size:10px; color:var(--muted);
-      letter-spacing:0.1em; text-transform:uppercase; margin-bottom:1rem;
-    }
-    .mission-item {
-      display:flex; align-items:flex-start; gap:12px; padding:10px 0;
-      border-bottom:1px solid rgba(255,255,255,0.04); font-size:14px; line-height:1.6;
-    }
+    .mission-block { margin-bottom:1.25rem; }
+    .mission-block-title { font-family:'Space Mono',monospace; font-size:10px; color:var(--accent); letter-spacing:0.1em; text-transform:uppercase; margin-bottom:0.6rem; display:flex; align-items:center; gap:8px; }
+    .stage-card.xefi .mission-block-title { color:var(--orange); }
+    .mission-block-title::after { content:''; flex:1; height:1px; background:var(--border); }
+    .mission-item { display:flex; align-items:flex-start; gap:12px; padding:10px 0; border-bottom:1px solid rgba(255,255,255,0.04); font-size:14px; line-height:1.6; }
     .mission-item:last-child { border-bottom:none; }
-    .m-num {
-      font-family:'Space Mono',monospace; font-size:10px; color:var(--accent);
-      background:rgba(0,229,255,0.08); border:1px solid rgba(0,229,255,0.2);
-      border-radius:4px; padding:2px 7px; flex-shrink:0; margin-top:2px;
-    }
+    .m-num { font-family:'Space Mono',monospace; font-size:10px; color:var(--accent); background:rgba(0,229,255,0.08); border:1px solid rgba(0,229,255,0.2); border-radius:4px; padding:2px 7px; flex-shrink:0; margin-top:2px; }
     .stage-card.xefi .m-num { color:var(--orange); background:rgba(245,158,11,0.08); border-color:rgba(245,158,11,0.2); }
-
+    .hl { font-weight:600; color:var(--accent); }
+    .stage-card.xefi .hl { color:var(--orange); }
     .tech-tags { display:flex; flex-wrap:wrap; gap:6px; margin-top:1.5rem; padding-top:1.25rem; border-top:1px solid var(--border); }
-    .tech-tag {
-      background:var(--surface2); border:1px solid var(--border); border-radius:6px;
-      font-size:11px; color:var(--muted); padding:4px 10px; font-family:'Space Mono',monospace;
-      transition:all 0.2s;
-    }
+    .tech-tag { background:var(--surface2); border:1px solid var(--border); border-radius:6px; font-size:11px; color:var(--muted); padding:4px 10px; font-family:'Space Mono',monospace; transition:all 0.2s; }
     .tech-tag:hover { color:var(--text); border-color:var(--muted); }
-
-    .bilan-grid { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:1.5rem; }
-    .bilan-card { background:var(--surface2); border:1px solid var(--border); border-radius:10px; padding:1.25rem; }
-    .bilan-card h4 { font-size:12px; font-family:'Space Mono',monospace; color:var(--green); letter-spacing:0.06em; margin-bottom:0.75rem; }
-    .bilan-card.neg h4 { color:#f87171; }
-    .bilan-card li { font-size:13px; color:var(--muted); margin-left:1rem; margin-bottom:4px; line-height:1.5; }
-
     footer { text-align:center; padding:2rem; color:var(--muted); font-family:'Space Mono',monospace; font-size:11px; border-top:1px solid var(--border); margin-top:4rem; }
   </style>
 </head>
 <body>
-
 <nav>
   <a class="logo" href="index.html">SOFIAN_JAGLIN.portfolio</a>
   <div class="nav-links">
@@ -129,13 +74,16 @@
     <a href="certification.html">Certifications</a>
   </div>
 </nav>
-
 <div class="container">
-
   <div class="page-header">
     <span class="tag tag-purple">Expériences professionnelles</span>
     <h1>Mes Stages</h1>
-    <p>Deux stages en milieu professionnel dans des environnements complémentaires : recherche académique et prestataire IT en entreprise.</p>
+    <p>Deux stages complémentaires : profil administrateur en milieu académique, puis profil opérationnel & cybersécurité en environnement prestataire.</p>
+  </div>
+
+  <div class="profil-card">
+    <h3>Contexte — Parcours</h3>
+    <p>Venant d'un cursus scientifique général (<strong style="color:#a78bfa">Bac NSI / Physique</strong>), j'ai choisi de me spécialiser en BTS SIO SISR, motivé par un intérêt fort pour la cybersécurité et les infrastructures réseau. Mes deux stages illustrent cette montée en compétences progressive, de la gestion d'infrastructure à la sécurité réseau en conditions réelles. Objectif de poursuite d'études : <strong style="color:#a78bfa">Bachelor en alternance à l'EPSI Nantes</strong>.</p>
   </div>
 
   <div class="timeline">
@@ -144,51 +92,38 @@
     <div class="stage-card labo">
       <div class="stage-top">
         <div>
-          <div class="stage-role">Stagiaire Informatique — Stage 1</div>
+          <div class="stage-role">Profil Administrateur — Stage 1</div>
           <div class="stage-org">Laboratoire de Mathématiques</div>
           <div class="stage-location">Faculté des Sciences</div>
         </div>
         <div class="stage-badge">Stage 1</div>
       </div>
 
-      <p class="stage-desc">
-        Stage au sein du laboratoire de mathématiques de la faculté des sciences. Environnement académique orienté recherche, avec des utilisateurs (chercheurs, enseignants-chercheurs, doctorants) aux besoins variés. Mission centrée sur la gestion de l'infrastructure informatique et la mise en place d'outils de supervision et de ticketing.
-      </p>
+      <p class="stage-desc">Mission centrée sur l'<strong>audit et la mise en place d'outils de gestion d'infrastructure</strong> au sein d'un laboratoire de recherche en mathématiques. Environnement académique avec des utilisateurs variés (chercheurs, doctorants, enseignants-chercheurs) et une infrastructure à moderniser. Mission incluant également de la <strong>gestion de projet</strong> avec coordination de prestataires externes.</p>
 
-      <div class="missions-title">Missions réalisées</div>
-      <div class="mission-item"><div class="m-num">01</div>Installation et configuration de <strong>Graylog</strong> — centralisation des logs système sur Linux Mint</div>
-      <div class="mission-item"><div class="m-num">02</div>Déploiement de <strong>GLPI</strong> avec base de données MySQL pour la gestion des incidents et du parc informatique</div>
-      <div class="mission-item"><div class="m-num">03</div>Configuration et déploiement des <strong>agents FusionInventory</strong> sur les postes du laboratoire</div>
-      <div class="mission-item"><div class="m-num">04</div>Administration des postes de travail Linux et Windows du laboratoire (mises à jour, droits, comptes)</div>
-      <div class="mission-item"><div class="m-num">05</div>Support utilisateur auprès des chercheurs et enseignants — résolution d'incidents de niveau 1 et 2</div>
-      <div class="mission-item"><div class="m-num">06</div>Rédaction de procédures techniques et documentation interne</div>
+      <div class="mission-block">
+        <div class="mission-block-title">Supervision & Logs</div>
+        <div class="mission-item"><div class="m-num">01</div>Étude comparative et déploiement de <span class="hl">Zabbix</span> pour la surveillance système (serveurs, postes, équipements réseau)</div>
+        <div class="mission-item"><div class="m-num">02</div>Déploiement de <span class="hl">Graylog</span> pour la centralisation des logs — retenu pour sa légèreté face à la stack ELK</div>
+      </div>
 
-      <div class="bilan-grid">
-        <div class="bilan-card">
-          <h4>✓ Points positifs</h4>
-          <ul>
-            <li>Autonomie rapidement acquise</li>
-            <li>Découverte d'outils ITSM réels</li>
-            <li>Contact avec des utilisateurs exigeants</li>
-          </ul>
-        </div>
-        <div class="bilan-card neg">
-          <h4>△ Points d'amélioration</h4>
-          <ul>
-            <li>Mieux anticiper les dépendances logicielles</li>
-            <li>Documenter plus tôt dans le processus</li>
-          </ul>
-        </div>
+      <div class="mission-block">
+        <div class="mission-block-title">Gouvernance IT</div>
+        <div class="mission-item"><div class="m-num">03</div>Rédaction de la <span class="hl">charte informatique</span> du laboratoire — règles d'usage, sécurité des données, responsabilités des utilisateurs</div>
+      </div>
+
+      <div class="mission-block">
+        <div class="mission-block-title">Gestion de projet</div>
+        <div class="mission-item"><div class="m-num">04</div>Pilotage du remplacement du <span class="hl">centre de calcul à azote liquide</span> — rédaction des devis, coordination des prestataires et suivi de projet</div>
       </div>
 
       <div class="tech-tags">
-        <span class="tech-tag">Linux Mint</span>
+        <span class="tech-tag">Zabbix</span>
         <span class="tech-tag">Graylog</span>
-        <span class="tech-tag">GLPI</span>
-        <span class="tech-tag">MySQL</span>
-        <span class="tech-tag">FusionInventory</span>
-        <span class="tech-tag">Windows</span>
-        <span class="tech-tag">SSH</span>
+        <span class="tech-tag">Linux</span>
+        <span class="tech-tag">Charte informatique</span>
+        <span class="tech-tag">Gestion de projet</span>
+        <span class="tech-tag">Devis prestataires</span>
       </div>
     </div>
 
@@ -196,59 +131,48 @@
     <div class="stage-card xefi">
       <div class="stage-top">
         <div>
-          <div class="stage-role">Technicien Support & Infrastructure — Stage 2</div>
+          <div class="stage-role">Profil Opérationnel & Cybersécurité — Stage 2</div>
           <div class="stage-org">XEFI</div>
-          <div class="stage-location">Intégrateur & prestataire informatique PME/TPE</div>
+          <div class="stage-location">Prestataire de services informatiques — PME/TPE</div>
         </div>
         <div class="stage-badge xefi-badge">Stage 2</div>
       </div>
 
-      <p class="stage-desc">
-        Stage chez XEFI, acteur majeur de l'informatique professionnelle pour PME/TPE en France. Immersion dans un environnement de production à rythme soutenu, avec des clients variés (commerces, cabinets médicaux, industries...). Missions à forte valeur technique avec interventions sur site et à distance.
-      </p>
+      <p class="stage-desc">Immersion en environnement prestataire à rythme soutenu, avec des clients variés (commerces, cabinets, industries). Missions à forte valeur technique couvrant la <strong>sécurité réseau</strong>, le <strong>déploiement système</strong> et les <strong>migrations de données</strong>. Forte montée en autonomie et en compétences opérationnelles.</p>
 
-      <div class="missions-title">Missions réalisées</div>
-      <div class="mission-item"><div class="m-num">01</div>Supervision réseau avec <strong>Zabbix</strong> : monitoring SNMP des serveurs, switchs Cisco/Linksys, bornes WiFi</div>
-      <div class="mission-item"><div class="m-num">02</div>Déploiement et configuration d'équipements réseau chez les clients (routeurs, switchs, bornes WiFi)</div>
-      <div class="mission-item"><div class="m-num">03</div>Administration système : <strong>Windows Server</strong>, Active Directory, gestion des comptes et droits</div>
-      <div class="mission-item"><div class="m-num">04</div>Configuration de <strong>VPN</strong> et accès à distance sécurisés pour les clients</div>
-      <div class="mission-item"><div class="m-num">05</div>Support technique niveaux 1 et 2 — prise en main à distance et interventions physiques</div>
-      <div class="mission-item"><div class="m-num">06</div>Rédaction de procédures techniques, fiches d'intervention et documentation client</div>
+      <div class="mission-block">
+        <div class="mission-block-title">Sécurité Réseau</div>
+        <div class="mission-item"><div class="m-num">01</div>Remplacement de pare-feux obsolètes par des solutions <span class="hl">Sophos</span> chez les clients</div>
+        <div class="mission-item"><div class="m-num">02</div>Configuration de règles <span class="hl">NAT / ACL</span> et mise en place de <span class="hl">tunnels VPN</span> sécurisés</div>
+      </div>
 
-      <div class="bilan-grid">
-        <div class="bilan-card">
-          <h4>✓ Points positifs</h4>
-          <ul>
-            <li>Environnement professionnel exigeant</li>
-            <li>Montée en compétence rapide</li>
-            <li>Diversité des missions et clients</li>
-          </ul>
-        </div>
-        <div class="bilan-card neg">
-          <h4>△ Points d'amélioration</h4>
-          <ul>
-            <li>Améliorer la gestion du stress en intervention</li>
-            <li>Approfondir la partie sécurité réseau</li>
-          </ul>
-        </div>
+      <div class="mission-block">
+        <div class="mission-block-title">Déploiement & Support</div>
+        <div class="mission-item"><div class="m-num">03</div>Préparation de postes en masse : <span class="hl">Mastering / Sysprep</span> pour le déploiement standardisé de machines Windows</div>
+        <div class="mission-item"><div class="m-num">04</div>Intégration <span class="hl">Active Directory</span> — création de comptes, GPO, gestion des droits utilisateurs</div>
+        <div class="mission-item"><div class="m-num">05</div>Support technique <span class="hl">N1 / N2</span> via outil de ticketing — mots de passe, licences, pannes matérielles</div>
+      </div>
+
+      <div class="mission-block">
+        <div class="mission-block-title">Migration</div>
+        <div class="mission-item"><div class="m-num">06</div>Migrations de messageries professionnelles avec <span class="hl">BitTitan</span> — transfert intégral des données utilisateurs (emails, calendriers, contacts)</div>
       </div>
 
       <div class="tech-tags">
-        <span class="tech-tag">Zabbix</span>
-        <span class="tech-tag">Cisco</span>
-        <span class="tech-tag">SNMP</span>
-        <span class="tech-tag">Windows Server</span>
-        <span class="tech-tag">Active Directory</span>
+        <span class="tech-tag">Sophos Firewall</span>
+        <span class="tech-tag">NAT / ACL</span>
         <span class="tech-tag">VPN</span>
-        <span class="tech-tag">WiFi</span>
+        <span class="tech-tag">Mastering / Sysprep</span>
+        <span class="tech-tag">Active Directory</span>
+        <span class="tech-tag">BitTitan</span>
+        <span class="tech-tag">Ticketing</span>
         <span class="tech-tag">Support N2</span>
+        <span class="tech-tag">Windows Server</span>
       </div>
     </div>
 
-  </div><!-- /timeline -->
+  </div>
 </div>
-
 <footer>© 2025 Sofian Jaglin — BTS SIO SISR</footer>
-
 </body>
 </html>

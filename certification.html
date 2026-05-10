@@ -15,62 +15,50 @@
       --text:#e2e8f0; --muted:#6b7280;
     }
     body { background:var(--bg); color:var(--text); font-family:'Syne',sans-serif; min-height:100vh; line-height:1.6; }
-
-    nav {
-      background:rgba(10,12,16,0.95); border-bottom:1px solid var(--border);
-      padding:0 2rem; display:flex; align-items:center; justify-content:space-between;
-      position:sticky; top:0; z-index:100; backdrop-filter:blur(12px);
-    }
+    nav { background:rgba(10,12,16,0.95); border-bottom:1px solid var(--border); padding:0 2rem; display:flex; align-items:center; justify-content:space-between; position:sticky; top:0; z-index:100; backdrop-filter:blur(12px); }
     .logo { font-family:'Space Mono',monospace; font-size:13px; color:var(--accent); letter-spacing:0.08em; padding:1rem 0; text-decoration:none; }
     .nav-links { display:flex; gap:0.25rem; flex-wrap:wrap; }
     .nav-links a { color:var(--muted); font-family:'Syne',sans-serif; font-size:13px; padding:0.5rem 0.875rem; border-radius:6px; text-decoration:none; transition:all 0.2s; letter-spacing:0.03em; border:1px solid transparent; }
     .nav-links a:hover { color:var(--text); background:var(--surface2); }
     .nav-links a.active { color:var(--accent); background:rgba(0,229,255,0.08); border-color:rgba(0,229,255,0.2); }
-
     .container { max-width:900px; margin:0 auto; padding:3rem 2rem; }
-
     .tag { display:inline-block; font-family:'Space Mono',monospace; font-size:10px; letter-spacing:0.1em; padding:3px 10px; border-radius:4px; margin-bottom:0.75rem; text-transform:uppercase; }
     .tag-green { background:rgba(16,185,129,0.1); color:var(--green); border:1px solid rgba(16,185,129,0.25); }
-
     .page-header { margin-bottom:2.5rem; padding-bottom:2rem; border-bottom:1px solid var(--border); }
     .page-header h1 { font-size:2.25rem; font-weight:800; letter-spacing:-0.02em; margin-bottom:0.5rem; }
     .page-header p { color:var(--muted); font-size:15px; }
-
-    /* STATS RÉSUMÉ */
     .stats-row { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-bottom:2.5rem; }
     .stat-card { background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:1.25rem; text-align:center; }
     .stat-number { font-family:'Space Mono',monospace; font-size:2rem; font-weight:700; color:var(--accent); line-height:1; }
     .stat-label { font-size:12px; color:var(--muted); margin-top:6px; }
-
-    /* SECTION LABEL */
     .section-label { font-family:'Space Mono',monospace; font-size:10px; letter-spacing:0.12em; color:var(--muted); text-transform:uppercase; margin:2rem 0 1.25rem; display:flex; align-items:center; gap:8px; }
     .section-label::after { content:''; flex:1; height:1px; background:var(--border); }
 
-    /* CERT CARDS */
-    .cert-card {
-      background:var(--surface); border:1px solid var(--border); border-radius:14px;
-      padding:1.5rem; margin-bottom:1rem; display:flex; align-items:center;
-      gap:1.25rem; transition:border-color 0.2s, transform 0.2s;
-    }
+    /* CERT CARD */
+    .cert-card { background:var(--surface); border:1px solid var(--border); border-radius:14px; padding:1.5rem; margin-bottom:1rem; display:flex; align-items:flex-start; gap:1.25rem; transition:border-color 0.2s, transform 0.2s; }
     .cert-card:hover { border-color:rgba(0,229,255,0.3); transform:translateX(4px); }
-    .cert-icon {
-      width:48px; height:48px; border-radius:12px; flex-shrink:0;
-      display:flex; align-items:center; justify-content:center; font-size:22px;
-      background:rgba(0,229,255,0.08); border:1px solid rgba(0,229,255,0.2);
-    }
+    .cert-card.wip:hover { border-color:rgba(245,158,11,0.3); }
+    .cert-icon { width:50px; height:50px; border-radius:12px; flex-shrink:0; display:flex; align-items:center; justify-content:center; font-size:22px; background:rgba(0,229,255,0.08); border:1px solid rgba(0,229,255,0.2); }
+    .cert-card.wip .cert-icon { background:rgba(245,158,11,0.08); border-color:rgba(245,158,11,0.2); }
     .cert-body { flex:1; }
-    .cert-name { font-weight:700; font-size:15px; margin-bottom:3px; }
-    .cert-desc { font-size:13px; color:var(--muted); margin-bottom:8px; }
+    .cert-name { font-weight:700; font-size:15px; margin-bottom:4px; }
+    .cert-desc { font-size:13px; color:var(--muted); line-height:1.6; margin-bottom:10px; }
     .cert-footer { display:flex; align-items:center; gap:10px; flex-wrap:wrap; }
     .cert-status { font-family:'Space Mono',monospace; font-size:10px; padding:3px 10px; border-radius:4px; }
     .status-ok  { background:rgba(16,185,129,0.1); color:var(--green);  border:1px solid rgba(16,185,129,0.25); }
     .status-wip { background:rgba(245,158,11,0.1); color:var(--orange); border:1px solid rgba(245,158,11,0.25); }
-    .cert-link { font-family:'Space Mono',monospace; font-size:10px; color:var(--accent); text-decoration:none; padding:3px 10px; border:1px solid rgba(0,229,255,0.25); border-radius:4px; transition:opacity 0.2s; }
-    .cert-link:hover { opacity:0.7; }
+    .cert-link {
+      font-family:'Space Mono',monospace; font-size:10px; color:var(--accent);
+      text-decoration:none; padding:4px 12px; border:1px solid rgba(0,229,255,0.3);
+      border-radius:4px; transition:all 0.2s; display:inline-flex; align-items:center; gap:6px;
+    }
+    .cert-link:hover { background:rgba(0,229,255,0.08); }
+    /* lien désactivé pour les certifs en cours sans PDF encore */
+    .cert-link.disabled { opacity:0.35; pointer-events:none; }
 
     /* OBJECTIFS */
-    .objectifs { background:var(--surface); border:1px solid var(--border); border-radius:14px; padding:1.75rem; margin-top:2.5rem; }
-    .objectifs h3 { font-size:15px; font-weight:700; margin-bottom:1rem; }
+    .objectifs { background:var(--surface); border:1px solid var(--border); border-radius:14px; padding:1.75rem; margin-top:1rem; }
+    .objectifs h3 { font-size:14px; font-weight:700; margin-bottom:1rem; }
     .obj-item { display:flex; align-items:flex-start; gap:12px; padding:10px 0; border-bottom:1px solid rgba(255,255,255,0.04); font-size:14px; }
     .obj-item:last-child { border-bottom:none; }
     .obj-dot { width:8px; height:8px; border-radius:50%; background:rgba(0,229,255,0.4); flex-shrink:0; margin-top:6px; }
@@ -81,7 +69,6 @@
   </style>
 </head>
 <body>
-
 <nav>
   <a class="logo" href="index.html">SOFIAN_JAGLIN.portfolio</a>
   <div class="nav-links">
@@ -92,9 +79,7 @@
     <a href="certification.html" class="active">Certifications</a>
   </div>
 </nav>
-
 <div class="container">
-
   <div class="page-header">
     <span class="tag tag-green">Diplômes & Certifications</span>
     <h1>Mes Certifications</h1>
@@ -116,17 +101,18 @@
     </div>
   </div>
 
-  <!-- CERTIFICATIONS OBTENUES -->
+  <!-- OBTENUES -->
   <div class="section-label">Certifications obtenues</div>
 
   <div class="cert-card">
     <div class="cert-icon">🛡️</div>
     <div class="cert-body">
       <div class="cert-name">SecNum — ANSSI</div>
-      <div class="cert-desc">MOOC de l'Agence Nationale de la Sécurité des Systèmes d'Information. Formation officielle aux fondamentaux de la cybersécurité : menaces, cryptographie, sécurité des réseaux et des systèmes.</div>
+      <div class="cert-desc">MOOC officiel de l'Agence Nationale de la Sécurité des Systèmes d'Information. Formation aux fondamentaux de la cybersécurité : menaces, cryptographie, sécurité des réseaux et des systèmes d'information.</div>
       <div class="cert-footer">
         <span class="cert-status status-ok">✓ Obtenu</span>
-        <a href="SecNum ANSSI.pdf" class="cert-link" target="_blank">Voir le certificat →</a>
+        <!-- Remplace le # par le nom de ton fichier PDF, ex: SecNum-ANSSI.pdf -->
+        <a href="#" class="cert-link">📄 Voir le certificat</a>
       </div>
     </div>
   </div>
@@ -135,10 +121,11 @@
     <div class="cert-icon">🎯</div>
     <div class="cert-body">
       <div class="cert-name">TryHackMe</div>
-      <div class="cert-desc">Certification de base sur la plateforme TryHackMe. Parcours d'apprentissage pratique de la cybersécurité : pentesting, forensics, réseau, CTF guidés et challenges progressifs.</div>
+      <div class="cert-desc">Certification de base sur la plateforme TryHackMe. Parcours d'apprentissage pratique de la cybersécurité : pentesting, forensics, réseau, CTF guidés et challenges progressifs par niveaux.</div>
       <div class="cert-footer">
         <span class="cert-status status-ok">✓ Obtenu</span>
-        <a href="TryHackMe_Sofian_Jaglin_Oral_v2-1.pdf" class="cert-link" target="_blank">Voir le certificat →</a>
+        <!-- Remplace le # par le nom de ton fichier PDF, ex: TryHackMe-Sofian.pdf -->
+        <a href="#" class="cert-link">📄 Voir le certificat</a>
       </div>
     </div>
   </div>
@@ -146,35 +133,44 @@
   <!-- EN COURS -->
   <div class="section-label">En cours d'obtention</div>
 
-  <div class="cert-card">
+  <div class="cert-card wip">
     <div class="cert-icon">💀</div>
     <div class="cert-body">
       <div class="cert-name">Root-Me — CTF</div>
       <div class="cert-desc">Challenges de Capture The Flag sur la plateforme Root-Me, référence française en sécurité offensive. Exercices de hacking éthique : web, réseau, cryptanalyse, reverse engineering, forensics.</div>
       <div class="cert-footer">
         <span class="cert-status status-wip">⏳ En cours</span>
+        <!-- Décommente et remplis quand tu auras un certificat :
+        <a href="nom-du-fichier.pdf" class="cert-link">📄 Voir le certificat</a>
+        -->
       </div>
     </div>
   </div>
 
-  <div class="cert-card">
+  <div class="cert-card wip">
     <div class="cert-icon">🌐</div>
     <div class="cert-body">
       <div class="cert-name">Certification Cisco</div>
-      <div class="cert-desc">Validation des compétences réseaux fondamentales via Cisco NetAcad. Couverture des protocoles réseau, routage, commutation, adressage IP et sécurité de base des infrastructures.</div>
+      <div class="cert-desc">Validation des compétences réseaux fondamentales via Cisco NetAcad. Protocoles réseau, routage, commutation, adressage IP et bases de la sécurité des infrastructures.</div>
       <div class="cert-footer">
         <span class="cert-status status-wip">⏳ En cours</span>
+        <!-- Décommente et remplis quand tu auras un certificat :
+        <a href="nom-du-fichier.pdf" class="cert-link">📄 Voir le certificat</a>
+        -->
       </div>
     </div>
   </div>
 
-  <div class="cert-card">
+  <div class="cert-card wip">
     <div class="cert-icon">🎮</div>
     <div class="cert-body">
       <div class="cert-name">Unity — Développement 3D</div>
       <div class="cert-desc">Certification Unity en développement et conception 3D. Création de jeux vidéo et simulations interactives : scripting C#, gestion de scènes, physique, interfaces et déploiement.</div>
       <div class="cert-footer">
         <span class="cert-status status-wip">⏳ En cours</span>
+        <!-- Décommente et remplis quand tu auras un certificat :
+        <a href="nom-du-fichier.pdf" class="cert-link">📄 Voir le certificat</a>
+        -->
       </div>
     </div>
   </div>
@@ -182,14 +178,12 @@
   <!-- OBJECTIFS -->
   <div class="objectifs">
     <h3>Objectifs de certification à venir</h3>
-    <div class="obj-item"><div class="obj-dot"></div><div class="obj-text"><strong>CompTIA Security+</strong> — Certification internationale de référence en cybersécurité, dans le cadre d'une poursuite d'études en Bachelor SISR/Cybersécurité.</div></div>
-    <div class="obj-item"><div class="obj-dot"></div><div class="obj-text"><strong>Cisco CCNA</strong> — Approfondissement des compétences réseau au niveau professionnel (routage, OSPF, VLAN, sécurité).</div></div>
+    <div class="obj-item"><div class="obj-dot"></div><div class="obj-text"><strong>CompTIA Security+</strong> — Certification internationale de référence en cybersécurité, dans le cadre de la poursuite d'études en Bachelor à l'EPSI Nantes.</div></div>
+    <div class="obj-item"><div class="obj-dot"></div><div class="obj-text"><strong>Cisco CCNA</strong> — Approfondissement des compétences réseau au niveau professionnel (routage OSPF, VLAN, sécurité).</div></div>
     <div class="obj-item"><div class="obj-dot"></div><div class="obj-text"><strong>CEH — Certified Ethical Hacker</strong> — Formation au pentesting éthique et à la cybersécurité offensive, objectif à moyen terme.</div></div>
   </div>
 
 </div>
-
 <footer>© 2025 Sofian Jaglin — BTS SIO SISR</footer>
-
 </body>
 </html>
